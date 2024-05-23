@@ -14,20 +14,20 @@ const links: Link[] = [
     path: "/",
   },
   {
-    name: "services",
-    path: "/service",
+    name: "about me",
+    path: "/about-me",
   },
   {
-    name: "resume",
-    path: "/resume",
+    name: "skills",
+    path: "/skills",
   },
   {
-    name: "work",
-    path: "/work",
+    name: "projects",
+    path: "/projects",
   },
   {
-    name: "contact",
-    path: "/contact",
+    name: "blogs",
+    path: "/blogs",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function Navigation() {
               link.path === pathName
                 ? "text-accent-600 border-b-2 border-accent-600"
                 : ""
-            } cap font-medium hover:text-accent-600 transition-all`}
+            } capitalize font-medium hover:text-accent-600 transition-all`}
           >
             {link.name}
           </Link>
