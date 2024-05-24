@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 import Navigation from "./Navigation";
+import NavigationMobile from "./NavigationMobile";
 
 export default function Header() {
   return (
@@ -19,7 +20,9 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="xl:hidden">Mobile Navigation</div>
+        <div className="xl:hidden">
+          <NavigationMobile />
+        </div>
       </div>
     </header>
   );
