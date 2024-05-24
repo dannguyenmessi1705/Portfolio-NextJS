@@ -39,7 +39,7 @@ export default function NavigationMobile() {
         <CiMenuFries className="text-4xl text-accent-600" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-        <div className="mt-32 mb-32 text-center text-2xl">
+        <div className="mt-28 mb-28 text-center text-2xl">
           <Link href="/">
             Logo
             <h1 className="text-4xl font-semibold">ZDiDane</h1>
