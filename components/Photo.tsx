@@ -13,7 +13,7 @@ export default function Photo() {
           transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
         }}
       >
-        <div className=" h-[198px] w-[198px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute z-50">
+        <div className=" h-[198px] w-[198px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute m-auto left-0 right-0">
           <Image
             src={avatar}
             alt="avatar"
@@ -25,14 +25,14 @@ export default function Photo() {
         </div>
 
         <motion.svg
-          className="w-[212px] h-[212px] xl:w-[406px] xl:h-[406px]"
+          className="w-[250px] h-[250px] xl:w-[450px] xl:h-[450px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.circle
             cx="255"
-            cy="255"
+            cy="250"
             r="250"
             stroke="#B78343"
             strokeWidth="4"
