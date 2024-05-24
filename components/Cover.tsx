@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 
 const variants = {
   initial: {
-    top: "0%",
+    left: "0%",
   },
   animate: {
-    top: "100%",
+    left: "100%",
   },
   exit: {
-    top: ["100%", "0%"],
+    left: ["100%", "0%"],
   },
 };
 
@@ -20,8 +20,8 @@ const reverse = (index: number): number => {
 export default function Cover() {
   return (
     <>
-      {[...Array(6)].map((_, index) => {
-        return (
+      {/* {[...Array(5)].map((_, index) => {
+        return ( */}
           <motion.div
             // key={index}
             variants={variants}
@@ -31,12 +31,12 @@ export default function Cover() {
             transition={{
               duration: 0.4,
               ease: "linear",
-              delay: reverse(index) * 0.1,
+              delay: 0.05,
             }}
             className="relative w-full h-full bg-primary-50"
           />
-         );
-      })}
+         {/* );
+      })} */}
     </>
   );
 }
