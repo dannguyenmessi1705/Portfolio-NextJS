@@ -13,13 +13,11 @@ const biology: Bio = {
   title: "My Biology",
   description:
     "Aspiring and enthusiastic software engineer developer \
-    studies Software Engineering, specializing in Web \
-    Development and Software Development. Developed \
+    studies Software Engineering, specializing in FullStack \
+    Development. Developed \
     web and mobile applications as both a back-end \
-    engineer and a front-end engineer. Strong skills in \
-    Javascript, Java, C++, HTML, CSS, and Node JS. \
-    I also want to find a suitable opportunity for my passion: \
-    Software Developer. Moreover, I truly desire to \
+    engineer and a front-end engineer.\
+    I truly desire to \
     experience and learn from real-world challenges to \
     grow myself more and to become a senior in this field.",
   info: [
@@ -50,9 +48,26 @@ const biology: Bio = {
   ],
 };
 
-
 export default function Biology() {
   return (
-    <div>Biology</div>
-  )
+    <div className="flex flex-col gap-[30px] mb-10">
+      <h3 className="text-4xl font-bold">{biology.title}</h3>
+      <p className="max-w-[600px] text-primary-300 mx-auto xl:mx-0">
+        {biology.description}
+      </p>
+      <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[650px] mx-auto xl:mx-0">
+        {biology.info.map((bio, index) => {
+          return (
+            <li
+              key={index}
+              className="flex items-center justify-center xl:justify-start gap-4"
+            >
+              <span className="text-primary-300">{bio.fieldName}:</span>
+              <span className="text-primary-50 font-semibold">{bio.fieldDescription}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }

@@ -1,16 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { ScrollArea } from "./ui/scroll-area";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipProvider,
-  TooltipContent,
-} from "./ui/tooltip";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "./ui/tabs";
 import Experience from "./Experience";
 import Education from "./Education";
 import Skills from "./Skills";
+import Biology from "./Biology";
 
 export default function AboutMe() {
   return (
@@ -35,8 +29,11 @@ export default function AboutMe() {
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
-            <TabsContent value="biology" className="w-full">
-              Biology
+            <TabsContent
+              value="biology"
+              className="w-full text-center xl:text-left"
+            >
+              <Biology />
             </TabsContent>
             <TabsContent value="experience" className="w-full">
               <Experience />
