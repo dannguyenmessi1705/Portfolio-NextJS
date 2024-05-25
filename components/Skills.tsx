@@ -22,6 +22,13 @@ import {
   SiNextdotjs,
   SiTailwindcss,
 } from "react-icons/si";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
+import { ScrollArea } from "./ui/scroll-area";
 
 type Skill = {
   icon: ReactNode;
@@ -30,7 +37,7 @@ type Skill = {
 const skill = {
   title: "My Skills",
   description:
-    "My technical skills include proficiency in list your most relevant programming languages and frameworks. I am adaptable and eager to learn new technologies to deliver effective solutions.",
+    "My technical skills include proficiency in list your most relevant programming languages and frameworks to deliver effective solutions.",
   skills: [
     {
       icon: <FaNodeJs />,
@@ -108,5 +115,36 @@ const skill = {
 };
 
 export default function Skills() {
-  return <div>Skills</div>;
+  return (
+    <div className="flex flex-col gap-[30px]">
+      <div className="flex flex-col gap-[30px] text-center xl:text-left">
+        <h3 className="text-4xl font-bold">{skill.title}</h3>
+        <p className="max-w-[600px] text-primary-300 mx-auto xl:mx-0 ">
+          {skill.description}
+        </p>
+      </div>
+      <ScrollArea className="h-[350px]">
+        <ul className="grid grid-cols-2 sm:grid md:grid-cols-4 xl:gap-[30px] gap-4">
+          {skill.skills.map((sk, index) => {
+            return (
+              <li key={index}>
+                <TooltipProvider delayDuration={100}>
+                  <Tooltip>
+                    <TooltipTrigger className="w-full h-[150px] bg-primary-900 rounded-xl flex justify-center items-center group">
+                      <div className="text-6xl group-hover:text-accent-600 transition-all duration-300">
+                        {sk.icon}
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="capitalize">{sk.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </li>
+            );
+          })}
+        </ul>
+      </ScrollArea>
+    </div>
+  );
 }

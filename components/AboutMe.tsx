@@ -10,6 +10,7 @@ import {
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "./ui/tabs";
 import Experience from "./Experience";
 import Education from "./Education";
+import Skills from "./Skills";
 
 export default function AboutMe() {
   return (
@@ -43,8 +44,8 @@ export default function AboutMe() {
             <TabsContent value="education" className="w-full">
               <Education />
             </TabsContent>
-            <TabsContent value="skills" className="w-full">
-              Skills
+            <TabsContent value="skills" className="w-full h-full">
+              <Skills />
             </TabsContent>
           </div>
         </Tabs>
