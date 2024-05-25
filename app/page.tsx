@@ -2,15 +2,17 @@ import { FaDownload } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import Socials from "@/components/Socials";
 import Photo from "@/components/Photo";
+import StatsDisplay from "@/components/StatsDisplay";
 export default function Home() {
   return (
     <section className="h-full">
-      <div className="container h-full mx-auto">
+      <div className="container h-full mx-auto xl:mb-6">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-18">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Software Engineer</span>
             <h1 className="h1 mb-4">
-              Hi I&apos;m <br /> Di Dan N.
+              Hi I&apos;m <br />{" "}
+              <span className="text-accent-600">Di Dan N.</span>
             </h1>
             <p className="max-w-[500px] mb-6 text-primary-200">
               I am a person who is always eager to learn new technologies and
@@ -40,6 +42,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <StatsDisplay />
     </section>
   );
 }
