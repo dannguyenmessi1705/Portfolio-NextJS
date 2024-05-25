@@ -25,7 +25,7 @@ export default function Photo() {
         </div>
 
         <motion.svg
-          className="w-[250px] h-[250px] xl:w-[450px] xl:h-[450px]"
+          className="w-[235px] h-[235px] xl:w-[465px] xl:h-[465px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"
