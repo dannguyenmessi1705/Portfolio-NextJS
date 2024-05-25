@@ -9,7 +9,6 @@ export default function Header() {
     <header className="py-6 xl:py-10 text-primary-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          Logo
           <h1 className="text-4xl font-semibold">ZDiDane</h1>
         </Link>
 
