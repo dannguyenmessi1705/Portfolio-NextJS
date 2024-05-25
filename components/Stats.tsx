@@ -16,11 +16,11 @@ export default function Stats({ codeCommits, currentStreaks }: Props) {
       description: "Projects Completed",
     },
     {
-      count: currentStreaks,
+      count: currentStreaks || 50,
       description: "Current Streaks",
     },
     {
-      count: codeCommits,
+      count: codeCommits || 726,
       description: "Code Commits",
     },
     {
