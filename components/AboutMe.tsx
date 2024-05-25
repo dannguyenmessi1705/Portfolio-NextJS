@@ -9,6 +9,7 @@ import {
 } from "./ui/tooltip";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "./ui/tabs";
 import Experience from "./Experience";
+import Education from "./Education";
 
 export default function AboutMe() {
   return (
@@ -40,7 +41,7 @@ export default function AboutMe() {
               <Experience />
             </TabsContent>
             <TabsContent value="education" className="w-full">
-              Education
+              <Education />
             </TabsContent>
             <TabsContent value="skills" className="w-full">
               Skills
