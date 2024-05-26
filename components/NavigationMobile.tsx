@@ -25,6 +25,10 @@ const links: Link[] = [
     name: "blogs",
     path: "/blogs",
   },
+  {
+    name: "contact",
+    path: "/contact",
+  },
 ];
 
 export default function NavigationMobile() {
