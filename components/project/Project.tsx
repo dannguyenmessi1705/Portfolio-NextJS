@@ -1,16 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
-
-import Link from "next/link";
-import Image from "next/image";
 import LinkProject from "./LinkProject";
 import ListProject from "./ListProject";
 import SwiperProject from "./SwiperProject";
@@ -65,7 +55,10 @@ export default function Project() {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
       className="min-h-[70vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
