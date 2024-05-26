@@ -1,18 +1,5 @@
 "use client";
 
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import {
-  Select,
-  SelectTrigger,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectContent,
-  SelectValue,
-} from "./ui/select";
-
 import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
 import { type ReactNode } from "react";
 import { motion } from "framer-motion";
@@ -51,7 +38,7 @@ export default function Contact({ children }: Props) {
         opacity: 1,
         transition: { duration: 0.4, delay: 1, ease: "easeIn" },
       }}
-      className="py-6"
+      className="py-4"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
