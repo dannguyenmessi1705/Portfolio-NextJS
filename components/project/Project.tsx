@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
+} from "../ui/tooltip";
 
 import Link from "next/link";
 import Image from "next/image";

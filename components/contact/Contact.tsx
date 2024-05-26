@@ -2,7 +2,7 @@
 
 import { type ReactNode } from "react";
 import { motion } from "framer-motion";
-import InfoContact from "./InfoContact";
+import InfoContact from "@/components/contact/InfoContact";
 
 type Props = {
   children: ReactNode;
