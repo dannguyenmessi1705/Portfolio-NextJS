@@ -30,7 +30,7 @@ export default function Stats({ codeCommits, currentStreaks }: Props) {
   ];
   return (
     <section>
-      <div className="container mx-auto">
+      <div className="container mx-auto mb-4">
         <div className="flex flex-wrap gap-6 max-w-[80vh] mx-auto xl:max-w-none">
           {stats.map((stat, index) => {
             return (
