@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
-import CoverTransition from "@/components/CoverTransition";
+import Header from "@/components/header/Header";
+import PageTransition from "@/components/transition/PageTransition";
+import CoverTransition from "@/components/transition/CoverTransition";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin", "vietnamese"],

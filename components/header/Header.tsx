@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
-import Navigation from "./Navigation";
-import NavigationMobile from "./NavigationMobile";
+import Navigation from "@/components/header/Navigation";
+import NavigationMobile from "@/components/header/NavigationMobile";
 
 export default function Header() {
   return (
