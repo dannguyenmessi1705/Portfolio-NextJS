@@ -18,10 +18,6 @@ const links: Link[] = [
     path: "/about-me",
   },
   {
-    name: "skills",
-    path: "/skills",
-  },
-  {
     name: "projects",
     path: "/projects",
   },

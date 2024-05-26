@@ -34,7 +34,12 @@ type Skill = {
   icon: ReactNode;
   name: string;
 };
-const skill = {
+type Info = {
+  title: string;
+  description: string;
+  skills: Skill[];
+};
+const skill: Info = {
   title: "My Skills",
   description:
     "My technical skills include proficiency in list your most relevant programming languages and frameworks to deliver effective solutions.",

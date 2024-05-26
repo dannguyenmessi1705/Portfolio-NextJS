@@ -1,5 +1,12 @@
+import Contact from "@/components/Contact";
+import FormContact from "@/components/FormContact";
+
 function Page() {
-  return <div>Contact Page</div>;
+  return (
+    <Contact>
+      <FormContact />
+    </Contact>
+  );
 }
 
 export default Page;

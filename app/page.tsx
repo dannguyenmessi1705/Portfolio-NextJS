@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Socials from "@/components/Socials";
 import Photo from "@/components/Photo";
 import StatsDisplay from "@/components/StatsDisplay";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -44,7 +45,9 @@ export default function Home() {
         </div>
       </div>
 
-      <StatsDisplay />
+      <Suspense>
+        <StatsDisplay />
+      </Suspense>
     </section>
   );
 }
