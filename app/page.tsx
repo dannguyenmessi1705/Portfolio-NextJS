@@ -1,8 +1,8 @@
 import { FaDownload } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
-import Socials from "@/components/Socials";
-import Photo from "@/components/Photo";
-import StatsDisplay from "@/components/StatsDisplay";
+import Socials from "@/components/homepage/Socials";
+import Photo from "@/components/homepage/Photo";
+import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 
 export default function Home() {
