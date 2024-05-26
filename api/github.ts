@@ -4,7 +4,10 @@ type Stats = {
 };
 
 export async function getCurrentStreaks(): Promise<Stats> {
-  const data = await fetch(`${process.env.GITHUB_CURRENT_STREAK}/${process.env.GITHUB_USERNAME}` as string);
+  const data = await fetch(
+    `${process.env.GITHUB_CURRENT_STREAK}/${process.env.GITHUB_USERNAME}` as string,
+    { cache: "no-store" }
+  );
   const res = await data.json();
   return {
     codeCommits: res.totalContributions,

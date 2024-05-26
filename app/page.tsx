@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Socials from "@/components/Socials";
 import Photo from "@/components/Photo";
 import StatsDisplay from "@/components/StatsDisplay";
+
 export default function Home() {
   return (
     <section className="h-full">
