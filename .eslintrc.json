@@ -1,3 +1,11 @@
 {
-  "extends": ["next/core-web-vitals"]
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "react/no-unescaped-entities": "off", // Tắt cảnh báo khi có ký tự đặc biệt trong JSX
+    "@typescript-eslint/quotes": "off", // Tắt cảnh báo khi sử dụng các ký tự nháy
+    "quotes": [0], // Tắt cảnh báo khi sử dụng dấu nháy đơn thay vì dấu nháy kép
+    "avoidEscape": 0, // Tránh việc sử dụng ký tự escape
+    "allowTemplateLiterals": 0, // Cho phép sử dụng template literals
+    "no-useless-escape": 0 // Tắt cảnh báo khi sử dụng ký tự escape không cần thiết
+  }
 }
