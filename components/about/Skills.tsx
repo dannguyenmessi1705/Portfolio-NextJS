@@ -27,8 +27,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
-import { ScrollArea } from "./ui/scroll-area";
+} from "../ui/tooltip";
+import { ScrollArea } from "../ui/scroll-area";
 
 type Skill = {
   icon: ReactNode;

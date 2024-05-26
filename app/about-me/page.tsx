@@ -1,4 +1,4 @@
-import AboutMe from "@/components/AboutMe";
+import AboutMe from "@/components/about/AboutMe";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

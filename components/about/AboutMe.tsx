@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { Tabs, TabsTrigger, TabsList, TabsContent } from "./ui/tabs";
-import Experience from "./Experience";
-import Education from "./Education";
-import Skills from "./Skills";
-import Biology from "./Biology";
+import { Tabs, TabsTrigger, TabsList, TabsContent } from "../ui/tabs";
+import Experience from "@/components/about/Experience";
+import Education from "@/components/about/Education";
+import Skills from "@/components/about/Skills";
+import Biology from "@/components/about/Biology";
 
 export default function AboutMe() {
   return (
