@@ -4,7 +4,7 @@ import { Tabs, TabsTrigger, TabsList, TabsContent } from "../ui/tabs";
 import Experience from "@/components/about/Experience";
 import Education from "@/components/about/Education";
 import Skills from "@/components/about/Skills";
-import Biology from "@/components/about/Biology";
+import Biogrophy from "@/components/about/Biogrophy";
 
 export default function AboutMe() {
   return (
@@ -18,11 +18,11 @@ export default function AboutMe() {
     >
       <div className="container mx-auto">
         <Tabs
-          defaultValue="biology"
+          defaultValue="biogrophy"
           className="flex flex-col xl:flex-row gap-16"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="biology">Biology</TabsTrigger>
+            <TabsTrigger value="biogrophy">Biogrophy</TabsTrigger>
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
@@ -30,10 +30,10 @@ export default function AboutMe() {
 
           <div className="min-h-[70vh] w-full">
             <TabsContent
-              value="biology"
+              value="biogrophy"
               className="w-full text-center xl:text-left"
             >
-              <Biology />
+              <Biogrophy />
             </TabsContent>
             <TabsContent value="experience" className="w-full">
               <Experience />

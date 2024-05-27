@@ -9,8 +9,8 @@ type Bio = {
   info: Info[];
 };
 
-const biology: Bio = {
-  title: "My Biology",
+const biogrophy: Bio = {
+  title: "My Biogrophy",
   description:
     "Aspiring and enthusiastic software engineer developer \
     studies Software Engineering, specializing in FullStack \
@@ -48,15 +48,15 @@ const biology: Bio = {
   ],
 };
 
-export default function Biology() {
+export default function Biogrophy() {
   return (
     <div className="flex flex-col gap-[30px] mb-10">
-      <h3 className="text-4xl font-bold">{biology.title}</h3>
+      <h3 className="text-4xl font-bold">{biogrophy.title}</h3>
       <p className="max-w-[600px] text-primary-300 mx-auto xl:mx-0">
-        {biology.description}
+        {biogrophy.description}
       </p>
       <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[650px] mx-auto xl:mx-0">
-        {biology.info.map((bio, index) => {
+        {biogrophy.info.map((bio, index) => {
           return (
             <li
               key={index}
