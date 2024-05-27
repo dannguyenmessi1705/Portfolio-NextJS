@@ -11,7 +11,7 @@ type Link = {
 const links: Link[] = [
   {
     name: "home",
-    path: "/",  
+    path: "/",
   },
   {
     name: "about me",
@@ -27,9 +27,9 @@ const links: Link[] = [
   },
 ];
 
-Navigation;
 export default function Navigation() {
   const pathName = usePathname();
+  console.log(pathName);
   return (
     <nav className="flex gap-8">
       {links.map((link, index) => {
@@ -38,7 +38,8 @@ export default function Navigation() {
             key={index}
             href={link.path}
             className={`${
-              link.path === pathName
+              (link.path.length === 1 && pathName === link.path) ||
+              (link.path.length !== 1 && pathName.startsWith(link.path))
                 ? "text-accent-600 border-b-2 border-accent-600"
                 : ""
             } capitalize font-medium hover:text-accent-600 transition-all`}

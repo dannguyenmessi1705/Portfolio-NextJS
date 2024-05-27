@@ -22,9 +22,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   const [showDetail, setShowDetail] = useState<boolean>(false);
   return (
     <div>
-      <img
+      <Image
         src={image}
         alt={title}
+        width={600}
+        height={200}
         className="cursor-pointer"
         onClick={() => setShowDetail(true)}
       />
