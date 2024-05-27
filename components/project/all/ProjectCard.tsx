@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 
-type Category = "all" | "frontend" | "backend" | "fullstack";
+type Category = "frontend" | "backend" | "fullstack";
 type Project = {
   id: string;
   category: Category;
