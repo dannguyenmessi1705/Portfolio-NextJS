@@ -6,7 +6,7 @@ type Project = {
   languages: { name: string }[];
   image: string;
   demo: string | null;
-  source: string | null;
+  source: string;
 };
 export default function ListProject({ project }: { project: Project }) {
   return (

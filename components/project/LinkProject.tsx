@@ -9,7 +9,7 @@ import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
 type LinkProjectProps = {
   demo: string | null;
-  source: string | null;
+  source: string;
 };
 
 export default function LinkProject({ demo, source }: LinkProjectProps) {

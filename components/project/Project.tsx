@@ -12,7 +12,7 @@ type Project = {
   languages: { name: string }[];
   image: string;
   demo: string | null;
-  source: string | null;
+  source: string;
 };
 const projects: Project[] = [
   {

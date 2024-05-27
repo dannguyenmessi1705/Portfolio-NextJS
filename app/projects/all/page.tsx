@@ -1,6 +1,5 @@
+import AllProject from "@/components/project/all/AllProject";
 
 export default function page() {
-  return (
-    <div>page</div>
-  )
+  return <AllProject />;
 }
