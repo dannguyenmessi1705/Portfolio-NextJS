@@ -5,7 +5,7 @@ import { remark } from "remark";
 import html from "remark-html";
 import Link from "next/link";
 
-export async function getStaticParams() {
+export async function generateStaticParams() {
   const files = fs.readdirSync(
     path.join(process.cwd(), "public", "assets", "blog", "post")
   );
