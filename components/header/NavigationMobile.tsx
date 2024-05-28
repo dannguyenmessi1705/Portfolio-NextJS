@@ -53,7 +53,8 @@ export default function NavigationMobile() {
                 key={index}
                 href={link.path}
                 className={`${
-                  link.path === pathName
+                  (link.path.length === 1 && pathName === link.path) ||
+                  (link.path.length !== 1 && pathName.startsWith(link.path))
                     ? "text-accent-600 border-b-2 border-accent-600"
                     : ""
                 } capitalize font-medium hover:text-accent-600 transition-all`}
