@@ -4,6 +4,7 @@ import Socials from "@/components/homepage/Socials";
 import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
+import Stats from "@/components/homepage/Stats";
 
 export default async function Home() {
   return (
@@ -45,7 +46,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <Suspense>
+      <Suspense fallback={<Stats codeCommits={0} currentStreaks={0} />}>
         <StatsDisplay />
       </Suspense>
     </section>
