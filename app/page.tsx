@@ -5,7 +5,7 @@ import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 
-export default function Home() {
+export default async function Home() {
   return (
     <section className="h-full">
       <div className="container mx-auto h-full xl:mb-6">
