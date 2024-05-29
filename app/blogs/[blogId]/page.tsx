@@ -4,10 +4,11 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import Link from "next/link";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "public", "assets", "blog", "post"),
+    path.join(process.cwd(), "public", "assets", "blog", "posts"),
   );
   const params = files.map((filename) => {
     return {
@@ -23,7 +24,7 @@ async function getPost(blogId: string) {
       "public",
       "assets",
       "blog",
-      "post",
+      "posts",
       `${blogId}.md`,
     ),
     "utf-8",
@@ -53,8 +54,8 @@ export default async function page({ params }: any) {
       <div className="rounded-xl px-8 py-4 shadow">
         <h1 className="my-3">{title}</h1>
         <div className="mt-5 bg-primary-900 px-2 py-1">Posted on {date}</div>
-        <img src={cover_image} alt={title} />
-        <div className="post-body">
+        <Image src={cover_image} alt={title} className="w-3/4 mx-auto" width={1200} height={300}/>
+        <div className="prose mx-auto w-3/4">
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
       </div>

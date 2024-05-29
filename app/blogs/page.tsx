@@ -10,13 +10,13 @@ async function Page() {
 
 async function getPost() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "public", "assets", "blog", "post"),
+    path.join(process.cwd(), "public", "assets", "blog", "posts"),
   );
   const posts = files.map((filename) => {
     // slug
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(
-      path.join(process.cwd(), "public", "assets", "blog", "post", filename),
+      path.join(process.cwd(), "public", "assets", "blog", "posts", filename),
       "utf-8",
     );
     const { data: frontmatter } = matter(markdownWithMeta);
