@@ -1,3 +1,4 @@
+import { color } from "framer-motion";
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -63,6 +64,20 @@ const config = {
           950: "#382814",
         },
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            backgroundColor: theme("colors.primary.950"),
+            color: theme("colors.primary.50"),
+            a: {
+              color: theme("colors.accent.600"),
+              "&:hover": {
+                color: theme("colors.accent.700"),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
