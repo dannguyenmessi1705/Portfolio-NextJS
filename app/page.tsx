@@ -25,7 +25,7 @@ export default async function Home() {
             </p>
 
             <div className="flex flex-col items-center gap-8 xl:flex-row">
-              <form action="/assets/cv/cv.pdf" method="post">
+              <form action="/assets/cv/cv.pdf" method="get">
                 <Button
                   variant="outline"
                   size="lg"
