@@ -25,14 +25,16 @@ export default async function Home() {
             </p>
 
             <div className="flex flex-col items-center gap-8 xl:flex-row">
-              <Button
-                variant="outline"
-                size="lg"
-                className="flex items-center gap-2 uppercase"
-              >
-                <span>Download my CV</span>
-                <FaDownload className="text-xl" />
-              </Button>
+              <form action="/assets/cv/cv.pdf" method="post">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="flex items-center gap-2 uppercase"
+                >
+                  <span>Download my CV</span>
+                  <FaDownload className="text-xl" />
+                </Button>
+              </form>
 
               <div className="mb-6 xl:mb-0">
                 <Socials />
