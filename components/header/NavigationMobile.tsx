@@ -35,18 +35,18 @@ export default function NavigationMobile() {
   const pathName = usePathname();
   return (
     <Sheet>
-      <SheetTrigger className="flex justify-center items-center">
+      <SheetTrigger className="flex items-center justify-center">
         <CiMenuFries className="text-4xl text-accent-600" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-        <div className="mt-28 mb-28 text-center text-2xl">
+        <div className="mb-28 mt-28 text-center text-2xl">
           <Link href="/">
             Logo
             <h1 className="text-4xl font-semibold">ZDiDane</h1>
           </Link>
         </div>
 
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col items-center justify-center gap-8">
           {links.map((link, index) => {
             return (
               <Link
@@ -55,9 +55,9 @@ export default function NavigationMobile() {
                 className={`${
                   (link.path.length === 1 && pathName === link.path) ||
                   (link.path.length !== 1 && pathName.startsWith(link.path))
-                    ? "text-accent-600 border-b-2 border-accent-600"
+                    ? "border-b-2 border-accent-600 text-accent-600"
                     : ""
-                } capitalize font-medium hover:text-accent-600 transition-all`}
+                } font-medium capitalize transition-all hover:text-accent-600`}
               >
                 {link.name}
               </Link>

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "public", "assets", "blog", "post")
+    path.join(process.cwd(), "public", "assets", "blog", "post"),
   );
   const params = files.map((filename) => {
     return {
@@ -24,9 +24,9 @@ async function getPost(blogId: string) {
       "assets",
       "blog",
       "post",
-      `${blogId}.md`
+      `${blogId}.md`,
     ),
-    "utf-8"
+    "utf-8",
   );
   // convert markdown to html
   const { data: frontmatter, content } = matter(markdownWithMeta);
@@ -46,13 +46,13 @@ export default async function page({ params }: any) {
     <div>
       <Link
         href="/blogs"
-        className="inline-block bg-accent-700 text-primary-50 border-none py-2 px-4 rounded-md cursor-pointer no-underline text-base"
+        className="inline-block cursor-pointer rounded-md border-none bg-accent-700 px-4 py-2 text-base text-primary-50 no-underline"
       >
         Go Back
       </Link>
-      <div className="py-4 px-8 rounded-xl shadow">
+      <div className="rounded-xl px-8 py-4 shadow">
         <h1 className="my-3">{title}</h1>
-        <div className="bg-primary-900 mt-5 py-1 px-2">Posted on {date}</div>
+        <div className="mt-5 bg-primary-900 px-2 py-1">Posted on {date}</div>
         <img src={cover_image} alt={title} />
         <div className="post-body">
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />

@@ -59,17 +59,17 @@ export default function Project() {
         opacity: 1,
         transition: { delay: 1, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[70vh] flex flex-col justify-center py-12 xl:px-0"
+      className="flex min-h-[70vh] flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[420px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
-              <div className="text-8xl leading-none font-extrabold">
+          <div className="order-2 flex w-full flex-col xl:order-none xl:h-[420px] xl:w-[50%] xl:justify-between">
+            <div className="flex h-[50%] flex-col gap-[30px]">
+              <div className="text-8xl font-extrabold leading-none">
                 {project.id}
               </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-primary-50 group-hover:text-accent-600 transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold capitalize leading-none text-primary-50 transition-all duration-500 group-hover:text-accent-600">
                 {project.category} project
               </h2>
 

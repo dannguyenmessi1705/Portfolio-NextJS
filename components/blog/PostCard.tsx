@@ -6,10 +6,10 @@ type Post = {
 };
 export default function PostCard({ post }: { post: Post }) {
   return (
-    <div className="p-4 rounded-xl shadow">
+    <div className="rounded-xl p-4 shadow">
       <img src={post.frontmatter.cover_image} alt={post.frontmatter.title} />
 
-      <div className="bg-primary-900 mt-5 py-1 px-2">
+      <div className="mt-5 bg-primary-900 px-2 py-1">
         Posted on {post.frontmatter.date}
       </div>
 

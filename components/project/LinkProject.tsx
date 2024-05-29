@@ -18,8 +18,8 @@ export default function LinkProject({ demo, source }: LinkProjectProps) {
       <Link href={demo!}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
-            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-primary-800 flex justify-center items-center group">
-              <BsArrowUpRight className="text-primary-50 text-4xl group-hover:text-accent-600" />
+            <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+              <BsArrowUpRight className="text-4xl text-primary-50 group-hover:text-accent-600" />
             </TooltipTrigger>
             <TooltipContent>
               <p>View Demo</p>
@@ -31,8 +31,8 @@ export default function LinkProject({ demo, source }: LinkProjectProps) {
       <Link href={source!}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
-            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-primary-800 flex justify-center items-center group">
-              <BsGithub className="text-primary-50 text-4xl group-hover:text-accent-600" />
+            <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+              <BsGithub className="text-4xl text-primary-50 group-hover:text-accent-600" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Source Code</p>

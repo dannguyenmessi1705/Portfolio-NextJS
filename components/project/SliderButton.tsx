@@ -18,7 +18,10 @@ export default function SliderButton({
         <PiCaretLeftBold className={iconStyle} />
       </button>
       <button className={buttonStyle}>
-        <PiCaretRightBold className={iconStyle} onClick={() => swiper.slideNext()} />
+        <PiCaretRightBold
+          className={iconStyle}
+          onClick={() => swiper.slideNext()}
+        />
       </button>
     </div>
   );

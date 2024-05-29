@@ -31,18 +31,18 @@ export default function Stats({ codeCommits, currentStreaks }: Props) {
   return (
     <section>
       <div className="container mx-auto mb-4">
-        <div className="flex flex-wrap gap-6 max-w-[80vh] mx-auto xl:max-w-none">
+        <div className="mx-auto flex max-w-[80vh] flex-wrap gap-6 xl:max-w-none">
           {stats.map((stat, index) => {
             return (
               <div
-                className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
+                className="flex flex-1 items-center justify-center gap-4 xl:justify-start"
                 key={index}
               >
                 <CountUp
                   end={stat.count}
                   duration={5}
                   delay={2}
-                  className="text-4xl xl:text-6xl font-extrabold"
+                  className="text-4xl font-extrabold xl:text-6xl"
                 />
                 <p
                   className={`${

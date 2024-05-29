@@ -10,8 +10,8 @@ export function NavbarItem({
 }) {
   return (
     <li
-      className={`cursor-pointer hover:text-accent-600 capitalize ${
-        active === value && "text-accent-600 border-b-2 border-accent-600"
+      className={`cursor-pointer capitalize hover:text-accent-600 ${
+        active === value && "border-b-2 border-accent-600 text-accent-600"
       }`}
       onClick={() => handleFilterCategory(value)}
     >
@@ -28,7 +28,7 @@ export default function NavbarProject({
   active: Category | "all";
 }) {
   return (
-    <div className="flex justify-center gap-4 px-3 py-2 overflow-x-auto list-none">
+    <div className="flex list-none justify-center gap-4 overflow-x-auto px-3 py-2">
       <NavbarItem
         value="all"
         handleFilterCategory={handleFilterCategory}

@@ -28,16 +28,16 @@ export default function SwiperProject({
     <Swiper
       spaceBetween={30}
       slidesPerView={1}
-      className="xl:h-[464px] mb-12"
+      className="mb-12 xl:h-[464px]"
       onSlideChange={handleChangeSlide}
     >
       {projects.map((project, index) => {
         return (
           <SwiperSlide key={index} className="w-full">
-            <div className="h-[400px] relative group flex justify-center items-center bg-accent-500/40">
-              <div className="absolute top-0 bottom-0 w-full h-full bg-primary-950/10 z-10"></div>
+            <div className="group relative flex h-[400px] items-center justify-center bg-accent-500/40">
+              <div className="absolute bottom-0 top-0 z-10 h-full w-full bg-primary-950/10"></div>
 
-              <div className="relative w-full h-full">
+              <div className="relative h-full w-full">
                 <Image
                   src={project.image}
                   fill

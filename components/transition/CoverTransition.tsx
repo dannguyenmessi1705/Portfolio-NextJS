@@ -8,7 +8,7 @@ export default function CoverTransition() {
     <>
       <AnimatePresence mode="wait">
         <div key={pathName}>
-          <div className="h-screen w-screen top-0 right-0 left-0 fixed pointer-events-none z-40 flex">
+          <div className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex h-screen w-screen">
             <Cover />
           </div>
           <motion.div
@@ -17,7 +17,7 @@ export default function CoverTransition() {
               opacity: 0,
               transition: { delay: 0.5, duration: 0.3, ease: "easeInOut" },
             }}
-            className="h-screen w-screen fixed top-0 bg-primary-950 pointer-events-none"
+            className="pointer-events-none fixed top-0 h-screen w-screen bg-primary-950"
           />
         </div>
       </AnimatePresence>

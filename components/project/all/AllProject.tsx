@@ -61,26 +61,26 @@ export default function AllProject() {
       return;
     }
     const filteredProjects = projects.filter(
-      (project) => project.category === category
+      (project) => project.category === category,
     );
     console.log(filteredProjects);
     setProject(filteredProjects);
     setActive(category);
   };
   return (
-    <div className="px-45 py-2 h-[65vh] overflow-y-scroll">
+    <div className="px-45 h-[65vh] overflow-y-scroll py-2">
       <nav>
         <NavbarProject
           handleFilterCategory={handleFilterCategory}
           active={active}
         />
       </nav>
-      <div className="relative grid grid-cols-12 gap-4 my-3">
+      <div className="relative my-3 grid grid-cols-12 gap-4">
         {project.map((pro, index) => {
           return (
             <div
               key={index}
-              className="col-span-12 sm:col-span-6 lg:col-span-4 p-2 bg-primary-900"
+              className="col-span-12 bg-primary-900 p-2 sm:col-span-6 lg:col-span-4"
             >
               <ProjectCard project={pro} />
             </div>

@@ -11,14 +11,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          "flex h-[48px] rounded-md border border-primary-900 focus:border-accent-600 font-light bg-primary-950 px-4 py-5 text-base placeholder:text-primary-300 outline-none",
-          className
+          "flex h-[48px] rounded-md border border-primary-900 bg-primary-950 px-4 py-5 text-base font-light outline-none placeholder:text-primary-300 focus:border-accent-600",
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Input.displayName = "Input";
 

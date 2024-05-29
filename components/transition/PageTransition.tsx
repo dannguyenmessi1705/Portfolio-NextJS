@@ -17,9 +17,9 @@ export default function PageTransition({ children }: Props) {
             opacity: 0,
             transition: { delay: 0.5, duration: 0.3, ease: "easeInOut" },
           }}
-          className="h-screen w-screen fixed top-0 bg-primary-950 pointer-events-none"
+          className="pointer-events-none fixed top-0 h-screen w-screen bg-primary-950"
         />
-          {children}
+        {children}
       </div>
     </AnimatePresence>
   );

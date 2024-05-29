@@ -124,19 +124,19 @@ export default function Skills() {
     <div className="flex flex-col gap-[30px]">
       <div className="flex flex-col gap-[30px] text-center xl:text-left">
         <h3 className="text-4xl font-bold">{skill.title}</h3>
-        <p className="max-w-[600px] text-primary-300 mx-auto xl:mx-0 ">
+        <p className="mx-auto max-w-[600px] text-primary-300 xl:mx-0 ">
           {skill.description}
         </p>
       </div>
       <ScrollArea className="h-[350px]">
-        <ul className="grid grid-cols-2 sm:grid md:grid-cols-4 xl:gap-[30px] gap-4">
+        <ul className="grid grid-cols-2 gap-4 sm:grid md:grid-cols-4 xl:gap-[30px]">
           {skill.skills.map((sk, index) => {
             return (
               <li key={index}>
                 <TooltipProvider delayDuration={100}>
                   <Tooltip>
-                    <TooltipTrigger className="w-full h-[150px] bg-primary-900 rounded-xl flex justify-center items-center group">
-                      <div className="text-6xl group-hover:text-accent-600 transition-all duration-300">
+                    <TooltipTrigger className="group flex h-[150px] w-full items-center justify-center rounded-xl bg-primary-900">
+                      <div className="text-6xl transition-all duration-300 group-hover:text-accent-600">
                         {sk.icon}
                       </div>
                     </TooltipTrigger>

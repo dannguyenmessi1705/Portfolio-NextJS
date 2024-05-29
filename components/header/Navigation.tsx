@@ -39,9 +39,9 @@ export default function Navigation() {
             className={`${
               (link.path.length === 1 && pathName === link.path) ||
               (link.path.length !== 1 && pathName.startsWith(link.path))
-                ? "text-accent-600 border-b-2 border-accent-600"
+                ? "border-b-2 border-accent-600 text-accent-600"
                 : ""
-            } capitalize font-medium hover:text-accent-600 transition-all`}
+            } font-medium capitalize transition-all hover:text-accent-600`}
           >
             {link.name}
           </Link>

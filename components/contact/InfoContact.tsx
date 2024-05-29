@@ -28,7 +28,7 @@ export default function InfoContact() {
       {info.map((item, index) => {
         return (
           <li key={index} className="flex items-center gap-6">
-            <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-primary-900 text-accent-600 rounded-md flex items-center justify-center">
+            <div className="flex h-[52px] w-[52px] items-center justify-center rounded-md bg-primary-900 text-accent-600 xl:h-[72px] xl:w-[72px]">
               <div className="text-3xl">{item.icon}</div>
             </div>
             <div className="flex-1">

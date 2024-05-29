@@ -22,20 +22,20 @@ export default function Cover() {
     <>
       {/* {[...Array(5)].map((_, index) => {
         return ( */}
-          <motion.div
-            // key={index}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{
-              duration: 0.4,
-              ease: "linear",
-              delay: 0.05,
-            }}
-            className="relative w-full h-full bg-accent-800"
-          />
-         {/* );
+      <motion.div
+        // key={index}
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{
+          duration: 0.4,
+          ease: "linear",
+          delay: 0.05,
+        }}
+        className="relative h-full w-full bg-accent-800"
+      />
+      {/* );
       })} */}
     </>
   );

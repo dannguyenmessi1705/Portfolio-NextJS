@@ -5,7 +5,7 @@ import avatar from "@/public/assets/avatar.png";
 
 export default function Photo() {
   return (
-    <div className="w-full h-full relative">
+    <div className="relative h-full w-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -13,7 +13,7 @@ export default function Photo() {
           transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
         }}
       >
-        <div className=" h-[198px] w-[198px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute m-auto left-0 right-0">
+        <div className=" absolute left-0 right-0 m-auto h-[198px] w-[198px] mix-blend-lighten xl:h-[398px] xl:w-[398px]">
           <Image
             src={avatar}
             alt="avatar"
@@ -25,7 +25,7 @@ export default function Photo() {
         </div>
 
         <motion.svg
-          className="w-[235px] h-[235px] xl:w-[465px] xl:h-[465px]"
+          className="h-[235px] w-[235px] xl:h-[465px] xl:w-[465px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"

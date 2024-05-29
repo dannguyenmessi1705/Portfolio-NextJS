@@ -50,27 +50,29 @@ export default function Experience() {
   return (
     <div className="flex flex-col gap-[30px] text-center xl:text-left">
       <h3 className="text-4xl font-bold">{experience.title}</h3>
-      <p className="max-w-[600px] text-primary-300 mx-auto xl:mx-0">
+      <p className="mx-auto max-w-[600px] text-primary-300 xl:mx-0">
         {experience.description}
       </p>
 
       <ScrollArea className="h-[350px]">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+        <ul className="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
           {experience.experiences.map((ex, index) => {
             return (
               <li
                 key={index}
-                className="bg-primary-900 h-[300px] py-6 px-10 rounded-xl flex flex-col justify-start items-center lg:items-start gap-1"
+                className="flex h-[300px] flex-col items-center justify-start gap-1 rounded-xl bg-primary-900 px-10 py-6 lg:items-start"
               >
-                <h3 className="text-xl max-w-[260px] min-h-[50px] text-center lg:text-left">{ex.position}</h3>
-                  {ex.descriptions.map((des, idx) => {
-                    return (
-                      <div key={idx} className="flex items-center gap-5">
-                        <span className="w-4 lg:w-5 h-2 rounded-full bg-accent-600"></span>
-                        <p className="text-primary-300">{des}</p>
-                      </div>
-                    );
-                  })}
+                <h3 className="min-h-[50px] max-w-[260px] text-center text-xl lg:text-left">
+                  {ex.position}
+                </h3>
+                {ex.descriptions.map((des, idx) => {
+                  return (
+                    <div key={idx} className="flex items-center gap-5">
+                      <span className="h-2 w-4 rounded-full bg-accent-600 lg:w-5"></span>
+                      <p className="text-primary-300">{des}</p>
+                    </div>
+                  );
+                })}
               </li>
             );
           })}
