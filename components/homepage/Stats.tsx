@@ -1,38 +1,37 @@
 "use client";
 import CountUp from "react-countup";
-type Stats = {
-  count: number;
-  description: string;
-};
+import { stats, type Stats } from "@/lib/data";
+import { useEffect, useState } from "react";
+import { useSocket } from "@/contexts/SocketProvider";
 type Props = {
   codeCommits: number;
   currentStreaks: number;
 };
 
 export default function Stats({ codeCommits, currentStreaks }: Props) {
-  const stats: Stats[] = [
-    {
-      count: 20,
-      description: "Projects Completed",
-    },
-    {
-      count: currentStreaks || 50,
-      description: "Current Streaks",
-    },
-    {
-      count: codeCommits || 726,
-      description: "Code Commits",
-    },
-    {
-      count: 300,
-      description: "Profile views",
-    },
-  ];
+  const [profileStats, setProfileStats] = useState<Stats[]>(stats);
+  const { users } = useSocket();
+
+  useEffect(() => {
+    setProfileStats((prev) => {
+      prev.forEach((stat) => {
+        if (stat.key === "accessings") {
+          stat.count = users;
+        } else if (stat.key === "codeCommits") {
+          stat.count = codeCommits;
+        } else if (stat.key === "currentStreaks") {
+          stat.count = currentStreaks;
+        }
+      });
+      return [...prev];
+    });
+  }, [users, codeCommits, currentStreaks]);
+
   return (
     <section>
       <div className="container mx-auto mb-4">
         <div className="mx-auto flex max-w-[80vh] flex-wrap gap-6 xl:max-w-none">
-          {stats.map((stat, index) => {
+          {profileStats.map((stat, index) => {
             return (
               <div
                 className="flex flex-1 items-center justify-center gap-4 xl:justify-start"
