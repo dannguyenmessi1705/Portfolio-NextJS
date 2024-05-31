@@ -8,7 +8,7 @@ import { SocketProvider } from "@/contexts/SocketProvider";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin", "vietnamese"],
-  display: "fallback",
+  display: "swap",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
