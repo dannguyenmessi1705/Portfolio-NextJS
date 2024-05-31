@@ -33,7 +33,7 @@ export default function Cover() {
           ease: "linear",
           delay: 0.05,
         }}
-        className="relative h-full w-full bg-accent-800"
+        className="relative h-full w-full bg-accent-800 left-0"
       />
       {/* );
       })} */}
