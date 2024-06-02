@@ -5,6 +5,7 @@ import Header from "@/components/header/Header";
 import PageTransition from "@/components/transition/PageTransition";
 import CoverTransition from "@/components/transition/CoverTransition";
 import { SocketProvider } from "@/contexts/SocketProvider";
+import { StarCanvas } from "@/components/homepage/StarBackground";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin", "vietnamese"],
@@ -28,11 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetbrains.className}>
-        <SocketProvider>
-          <Header />
-          <CoverTransition />
-          <PageTransition>{children}</PageTransition>
-        </SocketProvider>
+        <main className="h-full w-full">
+          <SocketProvider>
+            <StarCanvas />
+            <Header />
+            <CoverTransition />
+            <PageTransition>{children}</PageTransition>
+          </SocketProvider>
+        </main>
       </body>
     </html>
   );
