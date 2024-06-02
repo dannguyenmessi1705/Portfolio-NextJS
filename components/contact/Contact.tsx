@@ -16,7 +16,7 @@ export default function Contact({ children }: Props) {
         opacity: 1,
         transition: { duration: 0.4, delay: 1, ease: "easeIn" },
       }}
-      className="mb-4 py-2"
+      className="py-2"
     >
       <div className="container mx-auto">
         <div className="flex flex-col gap-[30px] xl:flex-row">
