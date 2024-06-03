@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/header/Header";
 import PageTransition from "@/components/transition/PageTransition";
 import CoverTransition from "@/components/transition/CoverTransition";
@@ -28,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <SpeedInsights />
       <body className={jetbrains.className}>
         <main className="h-full w-full">
           <SocketProvider>
