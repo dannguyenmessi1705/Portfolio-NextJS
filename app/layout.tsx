@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import PageTransition from "@/components/transition/PageTransition";
 import CoverTransition from "@/components/transition/CoverTransition";
 import { SocketProvider } from "@/contexts/SocketProvider";
-import { StarCanvas } from "@/components/homepage/StarBackground";
+import { StarCanvas } from "@/components/transition/StarBackground";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin", "vietnamese"],

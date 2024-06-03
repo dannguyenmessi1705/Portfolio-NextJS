@@ -8,7 +8,7 @@ export async function signInAction() {
 export async function sendEmailAction(data: any) {
   try {
     await fetch(
-      `${process.env.NEXT_PUBLIC_SOCKET_URL}/users/send-email`,
+      `${process.env.NEXT_BACKEND_URL}/users/send-email`,
       {
         method: "POST",
         headers: {
