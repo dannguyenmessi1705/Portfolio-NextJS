@@ -20,7 +20,12 @@ const SocketContext = createContext<Context>({
 export function SocketProvider({ children }: Props) {
   const [users, setUsers] = useState<number>(0);
   useEffect(() => {
-    const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL!);
+    const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL!, {
+      transports: ["websocket", "polling"],
+      path: "/socket",
+      reconnection: true,
+      reconnectionAttempts: 5,
+    });
     socket.on("connect", () => {
       console.log("connected");
     });
