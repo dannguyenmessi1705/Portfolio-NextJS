@@ -4,6 +4,7 @@ import { useState } from "react";
 import NavbarProject from "./NavbarProject";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ProjectDetail from "./ProjectDetail";
+import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
 
 type Category = "frontend" | "backend" | "others";
 type Project = {
@@ -119,7 +120,7 @@ export default function AllProject() {
       className="py-2"
     >
       <div className="container mx-auto">
-        <div className="flex justify-center mb-6">
+        <div className="mb-6 flex justify-center">
           <NavbarProject
             handleFilterCategory={handleFilterCategory}
             active={active}
@@ -136,6 +137,9 @@ export default function AllProject() {
             })}
           </div>
         </ScrollArea>
+        <div className="block sm:hidden">
+          <ButtonScrollTop />
+        </div>
       </div>
     </motion.section>
   );
