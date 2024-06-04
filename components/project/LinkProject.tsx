@@ -4,8 +4,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import Link from "next/link";
-import { BsArrowUpRight, BsGithub, BsGridFill } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsGridFill, BsPlus } from "react-icons/bs";
+import { DialogFooter } from "../ui/dialog";
+import { Button } from "../ui/button";
+import ProjectCreateForm from "./ProjectCreateForm";
 
 type LinkProjectProps = {
   demo: string | null;
@@ -14,7 +24,7 @@ type LinkProjectProps = {
 
 export default function LinkProject({ demo, source }: LinkProjectProps) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="xl:mb-none mb-6 flex items-center gap-4">
       <Link href={demo!}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
@@ -53,6 +63,29 @@ export default function LinkProject({ demo, source }: LinkProjectProps) {
           </Tooltip>
         </TooltipProvider>
       </Link>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <div>
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+                  <BsPlus className="text-6xl text-primary-50 group-hover:text-accent-600" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Add Project</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+        </DialogTrigger>
+        <DialogContent className="w-full">
+          <DialogHeader>
+            <h2 className="text-2xl font-bold">Add Project</h2>
+          </DialogHeader>
+          <ProjectCreateForm />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
