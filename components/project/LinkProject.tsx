@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsGridFill } from "react-icons/bs";
 
 type LinkProjectProps = {
   demo: string | null;
@@ -36,6 +36,19 @@ export default function LinkProject({ demo, source }: LinkProjectProps) {
             </TooltipTrigger>
             <TooltipContent>
               <p>Source Code</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </Link>
+
+      <Link href="projects/all">
+        <TooltipProvider delayDuration={100}>
+          <Tooltip>
+            <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+              <BsGridFill className="text-4xl text-primary-50 group-hover:text-accent-600" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>All Projects</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import LinkProject from "./LinkProject";
 import ListProject from "./ListProject";
 import SwiperProject from "./SwiperProject";
+import NotFound from "@/app/not-found";
 type Project = {
   id: string;
   category: string;
@@ -52,6 +53,7 @@ const projects: Project[] = [
 ];
 export default function Project() {
   const [project, setProject] = useState<Project>(projects[0]);
+  if (!project) return <NotFound message="There are no projects here" />;
   return (
     <motion.section
       initial={{ opacity: 0 }}
