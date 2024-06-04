@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import NavbarProject from "./NavbarProject";
 import ProjectCard from "./ProjectCard";
@@ -68,25 +69,34 @@ export default function AllProject() {
     setActive(category);
   };
   return (
-    <div className="px-45 h-[65vh] overflow-y-scroll py-2">
-      <nav>
-        <NavbarProject
-          handleFilterCategory={handleFilterCategory}
-          active={active}
-        />
-      </nav>
-      <div className="relative my-3 grid grid-cols-12 gap-4">
-        {project.map((pro, index) => {
-          return (
-            <div
-              key={index}
-              className="col-span-12 bg-primary-900 p-2 sm:col-span-6 lg:col-span-4"
-            >
-              <ProjectCard project={pro} />
-            </div>
-          );
-        })}
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.4, delay: 1, ease: "easeIn" },
+      }}
+      className="py-2"
+    >
+      <div className="px-45 h-[65vh] overflow-y-scroll py-2">
+        <nav>
+          <NavbarProject
+            handleFilterCategory={handleFilterCategory}
+            active={active}
+          />
+        </nav>
+        <div className="relative my-3 grid grid-cols-12 gap-4">
+          {project.map((pro, index) => {
+            return (
+              <div
+                key={index}
+                className="col-span-12 bg-primary-900 p-2 sm:col-span-6 lg:col-span-4"
+              >
+                <ProjectCard project={pro} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </motion.section>
   );
 }
