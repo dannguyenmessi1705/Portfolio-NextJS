@@ -36,7 +36,7 @@ export default function SwiperProject({
           <SwiperSlide key={index} className="w-full">
             <div className="group relative flex h-[300px] items-center justify-center bg-accent-500/40 sm:h-[500px] md:h-[500px] lg:h-[400px]">
               <div className="absolute inset-0 z-10 bg-primary-950/10"></div>
-              <div className="relative h-full w-full">
+              <div className="relative h-full w-full aspect-square">
                 <Image
                   src={project.image}
                   layout="fill"

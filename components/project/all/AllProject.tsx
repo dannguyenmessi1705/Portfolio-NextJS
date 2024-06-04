@@ -119,12 +119,12 @@ export default function AllProject() {
       className="py-2"
     >
       <div className="container mx-auto">
-        <nav>
+        <div className="flex justify-center mb-6">
           <NavbarProject
             handleFilterCategory={handleFilterCategory}
             active={active}
           />
-        </nav>
+        </div>
         <ScrollArea className="h-5/6 sm:h-[500px]">
           <div className="relative my-3 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {project.map((pro, index) => {

@@ -28,27 +28,27 @@ export default function NavbarProject({
   active: Category | "all";
 }) {
   return (
-    <div className="flex list-none justify-center gap-4 overflow-x-auto px-3 py-2">
-      <NavbarItem
-        value="all"
-        handleFilterCategory={handleFilterCategory}
-        active={active}
-      />
-      <NavbarItem
-        value="frontend"
-        handleFilterCategory={handleFilterCategory}
-        active={active}
-      />
-      <NavbarItem
-        value="backend"
-        handleFilterCategory={handleFilterCategory}
-        active={active}
-      />
-      <NavbarItem
-        value="others"
-        handleFilterCategory={handleFilterCategory}
-        active={active}
-      />
-    </div>
+    <nav className="flex list-none justify-center gap-4 overflow-x-auto px-3 py-2">
+        <NavbarItem
+          value="all"
+          handleFilterCategory={handleFilterCategory}
+          active={active}
+        />
+        <NavbarItem
+          value="frontend"
+          handleFilterCategory={handleFilterCategory}
+          active={active}
+        />
+        <NavbarItem
+          value="backend"
+          handleFilterCategory={handleFilterCategory}
+          active={active}
+        />
+        <NavbarItem
+          value="others"
+          handleFilterCategory={handleFilterCategory}
+          active={active}
+        />
+    </nav>
   );
 }
