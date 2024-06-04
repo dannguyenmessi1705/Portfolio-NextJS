@@ -1,5 +1,10 @@
 "use client";
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,8 +46,9 @@ export default function NavigationMobile() {
       <SheetContent className="flex flex-col">
         <div className="mb-28 mt-28 text-center text-2xl">
           <Link href="/">
-            Logo
-            <h1 className="text-4xl font-semibold">ZDiDane</h1>
+            <SheetClose>
+              <h1 className="text-4xl font-semibold">ZDiDane</h1>
+            </SheetClose>
           </Link>
         </div>
 
@@ -57,9 +63,11 @@ export default function NavigationMobile() {
                   (link.path.length !== 1 && pathName.startsWith(link.path))
                     ? "border-b-2 border-accent-600 text-accent-600"
                     : ""
-                } font-medium capitalize transition-all hover:text-accent-600`}
+                } `}
               >
-                {link.name}
+                <SheetClose className="font-medium capitalize transition-all hover:text-accent-600">
+                  {link.name}
+                </SheetClose>
               </Link>
             );
           })}
