@@ -23,6 +23,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export function SelectDemo() {
   return (
@@ -68,9 +71,16 @@ const formSchema = z.object({
   languages: z.string().min(1, {
     message: "Language is required",
   }),
+  image: z
+    .any()
+    .optional()
+    .refine((file) => !file || file instanceof File, {
+      message: "Image is required",
+    }),
 });
 
 export default function ProjectCreateForm() {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -80,8 +90,16 @@ export default function ProjectCreateForm() {
       source: "",
       category: "",
       languages: "",
+      image: null,
     },
   });
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
+    };
+  }, [imagePreview]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // sendEmailAction(values);
@@ -153,7 +171,7 @@ export default function ProjectCreateForm() {
                       <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent position="popper">
                         <SelectGroup>
                           <SelectLabel>Category</SelectLabel>
                           <SelectItem value="frontend">Frontend</SelectItem>
@@ -180,6 +198,59 @@ export default function ProjectCreateForm() {
                       placeholder="Languages: Java, Python, ..."
                       {...field}
                     />
+                  </FormControl>
+                  <FormMessage className="absolute" />
+                </FormItem>
+              );
+            }}
+          />
+
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field: { name, onBlur, onChange, ref, value } }) => {
+              return (
+                <FormItem className="relative mb-4">
+                  <FormControl className="w-full">
+                    <div className="flex gap-6">
+                      <Button
+                        type="button"
+                        onClick={() => fileInputRef.current!.click()}
+                      >
+                        Upload Image
+                        <Input
+                          className="hidden"
+                          type="file"
+                          ref={fileInputRef}
+                          name={name}
+                          onBlur={onBlur}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            onChange(e.target.files?.[0]);
+                            setImagePreview(
+                              file ? URL.createObjectURL(file) : null,
+                            );
+                          }}
+                        />
+                      </Button>
+                      {imagePreview && (
+                        <>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button type="button">Preview</Button>
+                            </DialogTrigger>
+                            <DialogContent className="aspect-video">
+                              <Image
+                                src={imagePreview}
+                                alt="preview"
+                                fill
+                                className="object-cover"
+                              />
+                            </DialogContent>
+                          </Dialog>
+                        </>
+                      )}
+                    </div>
                   </FormControl>
                   <FormMessage className="absolute" />
                 </FormItem>
