@@ -8,7 +8,7 @@ type Project = {
   demo: string | null;
   source: string;
 };
-export default function ListProject({ project }: { project: Project }) {
+export default function Languages({ project }: { project: Project }) {
   return (
     <ul className="flex gap-4">
       {project.languages.map((lang, index) => {

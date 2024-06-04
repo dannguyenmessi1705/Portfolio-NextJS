@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import LinkProject from "./LinkProject";
-import ListProject from "./ListProject";
+import Languages from "./Languages";
 import SwiperProject from "./SwiperProject";
 import NotFound from "@/app/not-found";
 type Project = {
@@ -77,7 +77,7 @@ export default function Project() {
 
               <p className="text-primary-300">{project.description}</p>
 
-              <ListProject project={project} />
+              <Languages project={project} />
 
               <div className="border border-primary-800"></div>
 
