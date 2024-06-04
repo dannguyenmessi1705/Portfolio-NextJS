@@ -1,4 +1,4 @@
-type Category = "frontend" | "backend" | "fullstack";
+type Category = "frontend" | "backend" | "others";
 export function NavbarItem({
   value,
   handleFilterCategory,
@@ -10,7 +10,7 @@ export function NavbarItem({
 }) {
   return (
     <li
-      className={`cursor-pointer capitalize hover:text-accent-600 ${
+      className={`cursor-pointer capitalize hover:text-accent-600 xl:mx-3 ${
         active === value && "border-b-2 border-accent-600 text-accent-600"
       }`}
       onClick={() => handleFilterCategory(value)}
@@ -45,7 +45,7 @@ export default function NavbarProject({
         active={active}
       />
       <NavbarItem
-        value="fullstack"
+        value="others"
         handleFilterCategory={handleFilterCategory}
         active={active}
       />

@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import NavbarProject from "./NavbarProject";
-import ProjectCard from "./ProjectCard";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import ProjectDetail from "./ProjectDetail";
 
-type Category = "frontend" | "backend" | "fullstack";
+type Category = "frontend" | "backend" | "others";
 type Project = {
   id: string;
   category: Category;
@@ -28,7 +29,7 @@ const projects: Project[] = [
   },
   {
     id: "02",
-    category: "fullstack",
+    category: "others",
     title: "Project 2",
     description: "Project 2 description",
     languages: [
@@ -42,6 +43,46 @@ const projects: Project[] = [
   },
   {
     id: "03",
+    category: "backend",
+    title: "Project 3",
+    description: "Project 3 description",
+    languages: [{ name: "Spring Boot" }],
+    image: "/assets/projects/thumb3.png",
+    demo: "https://example.com",
+    source: "https://github.com",
+  },
+  {
+    id: "04",
+    category: "backend",
+    title: "Project 3",
+    description: "Project 3 description",
+    languages: [{ name: "Spring Boot" }],
+    image: "/assets/projects/thumb3.png",
+    demo: "https://example.com",
+    source: "https://github.com",
+  },
+  {
+    id: "05",
+    category: "backend",
+    title: "Project 3",
+    description: "Project 3 description",
+    languages: [{ name: "Spring Boot" }],
+    image: "/assets/projects/thumb3.png",
+    demo: "https://example.com",
+    source: "https://github.com",
+  },
+  {
+    id: "06",
+    category: "backend",
+    title: "Project 3",
+    description: "Project 3 description",
+    languages: [{ name: "Spring Boot" }],
+    image: "/assets/projects/thumb3.png",
+    demo: "https://example.com",
+    source: "https://github.com",
+  },
+  {
+    id: "07",
     category: "backend",
     title: "Project 3",
     description: "Project 3 description",
@@ -77,25 +118,24 @@ export default function AllProject() {
       }}
       className="py-2"
     >
-      <div className="px-45 h-[65vh] overflow-y-scroll py-2">
+      <div className="container mx-auto">
         <nav>
           <NavbarProject
             handleFilterCategory={handleFilterCategory}
             active={active}
           />
         </nav>
-        <div className="relative my-3 grid grid-cols-12 gap-4">
-          {project.map((pro, index) => {
-            return (
-              <div
-                key={index}
-                className="col-span-12 bg-primary-900 p-2 sm:col-span-6 lg:col-span-4"
-              >
-                <ProjectCard project={pro} />
-              </div>
-            );
-          })}
-        </div>
+        <ScrollArea className="h-5/6 sm:h-[500px]">
+          <div className="relative my-3 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+            {project.map((pro, index) => {
+              return (
+                <div key={index} className="rounded-md bg-primary-900">
+                  <ProjectDetail project={pro} />
+                </div>
+              );
+            })}
+          </div>
+        </ScrollArea>
       </div>
     </motion.section>
   );
