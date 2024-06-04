@@ -26,24 +26,7 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-
-export function SelectDemo() {
-  return (
-    <Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select category" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Category</SelectLabel>
-          <SelectItem value="frontend">Frontend</SelectItem>
-          <SelectItem value="backend">Backend</SelectItem>
-          <SelectItem value="others">Others</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  );
-}
+import { createProjectAction } from "@/lib/serverAction";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -102,9 +85,15 @@ export default function ProjectCreateForm() {
   }, [imagePreview]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // sendEmailAction(values);
-    // delete all values
-    console.log(values);
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("description", values.description);
+    formData.append("demo", values.demo);
+    formData.append("source", values.source);
+    formData.append("category", values.category);
+    formData.append("languages", values.languages);
+    values.image && formData.append("image", values.image!);
+    createProjectAction(formData);
     form.reset();
   }
 

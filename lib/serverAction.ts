@@ -1,5 +1,6 @@
 "use server";
 import { signIn } from "./auth";
+import axios from "axios";
 
 export async function signInAction() {
   return signIn("github", { redirectTo: "/" });
@@ -19,19 +20,17 @@ export async function sendEmailAction(data: any) {
   }
 }
 
-export async function createProjectAction(data: any) {
-  if (!process.env.SECRET_PASSWORD) throw new Error("Not authorized");
-  
-  try {
-    await fetch(`${process.env.NEXT_BACKEND_URL}/projects`, {
-      method: "POST",
+export async function createProjectAction(data: FormData) {
+  const result = await axios.post(
+    `${process.env.NEXT_BACKEND_URL}/projects`,
+    data,
+    {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: process.env.SECRET_PASSWORD!,
       },
-      body: JSON.stringify(data),
-    });
-  } catch (error) {
-    throw new Error("Failed to create project");
-  }
+    },
+  );
+  const res = await result.data;
+  return res;
 }
