@@ -30,7 +30,7 @@ export default function Project({ projects }: { projects: Project[] }) {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="order-2 flex w-full flex-col xl:order-none xl:h-[420px] xl:w-[50%] xl:justify-between">
-            <div className="flex h-[50%] flex-col gap-[30px]">
+            <div className="flex h-[70%] flex-col gap-[30px]">
               <div className="text-4xl font-extrabold leading-none">
                 {project.title}
               </div>
@@ -39,14 +39,14 @@ export default function Project({ projects }: { projects: Project[] }) {
                 {project.category} project
               </h2>
 
-              <p className="text-primary-300">{project.description}</p>
+              <div className="flex-1">
+                <p className="text-primary-300">{project.description}</p>
+              </div>
 
               <Languages project={project} />
-
-              <div className="border border-primary-800"></div>
-
-              <LinkProject demo={project.demo} source={project.source} />
             </div>
+            <div className="border border-primary-800 mb-2 xl:mb-0"></div>
+            <LinkProject demo={project.demo} source={project.source} />
           </div>
 
           <div className="w-full xl:w-[50%]">
