@@ -15,7 +15,6 @@ async function getData() {
 
 async function Page() {
   const projects = await getData();
-  console.log(projects);
   return <Project projects={projects} />;
 }
 
