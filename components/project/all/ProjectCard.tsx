@@ -23,7 +23,7 @@ export default function ProjectCard({
   return (
     <div className="grid h-[480px] w-full gap-x-12 bg-primary-900 p-6 text-primary-50 md:grid-cols-2">
       <div className="mb-6 md:mb-0">
-        <div className="h- relative h-5/6 w-full">
+        <div className="relative h-5/6 w-full">
           <Image
             src={
               image
