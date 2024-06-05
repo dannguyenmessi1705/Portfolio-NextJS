@@ -39,6 +39,7 @@ export default function ProjectCard({
           {demo && (
             <Link
               href={demo}
+              target="_blank"
               className="flex items-center space-x-3 bg-primary-900 px-4 py-2 text-lg"
             >
               <BsArrowUpRight />
@@ -47,6 +48,7 @@ export default function ProjectCard({
           )}
           <Link
             href={source}
+            target="_blank"
             className="flex items-center space-x-3 bg-primary-900 px-4 py-2 text-lg"
           >
             <BsGithub />

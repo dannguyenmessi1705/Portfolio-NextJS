@@ -11,27 +11,27 @@ import ProjectCard from "./ProjectCard";
 import { type Project, type Category } from "@/lib/data";
 import noImage from "@/public/assets/no-image.svg";
 
-
 export default function ProjectDetail({ project }: { project: Project }) {
   const { id, category, title, description, languages, image, demo, source } =
     project;
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="p-3">
-          <Image
-            src={
-              image
-                ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${image}`
-                : noImage
-            }
-            alt={title}
-            priority
-            width={540}
-            height={200}
-            className="cursor-pointer"
-          />
-          <p className="my-2 text-center ">{title}</p>
+        <div className="p-3 flex flex-col">
+          <div className="relative aspect-video h-2/3 w-full">
+            <Image
+              src={
+                image
+                  ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${image}`
+                  : noImage
+              }
+              alt={title}
+              priority
+              fill
+              className="cursor-pointer object-cover"
+            />
+          </div>
+          <p className="my-2 text-center">{title}</p>
         </div>
       </DialogTrigger>
       <DialogContent className="w-full">

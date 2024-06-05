@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import avatar from "@/public/assets/avatar.png";
+import avatar from "@/public/assets/avatar.webp";
 
 export default function Photo() {
   return (
