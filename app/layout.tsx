@@ -33,9 +33,9 @@ export default function RootLayout({
       <body className={jetbrains.className}>
         <main className="h-full w-full">
           <SocketProvider>
-            <StarCanvas />
             <Header />
             <CoverTransition />
+            <StarCanvas />
             <PageTransition>{children}</PageTransition>
           </SocketProvider>
         </main>

@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { signIn } from "./auth";
 import axios from "axios";
 
@@ -32,5 +33,16 @@ export async function createProjectAction(data: FormData) {
     },
   );
   const res = await result.data;
+  if (!res) throw new Error("Failed to create project");
+  revalidatePath("/projects");
+  revalidatePath("/projects/all");
+  revalidatePath("/");
+  return res;
+}
+
+export async function getProjectsAction() {
+  const result = await axios.get(`${process.env.NEXT_BACKEND_URL}/projects`);
+  const res = await result.data;
+  if (!res) throw new Error("Failed to fetch projects");
   return res;
 }

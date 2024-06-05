@@ -3,7 +3,7 @@ type Project = {
   category: string;
   title: string;
   description: string;
-  languages: { name: string }[];
+  languages: string[];
   image: string;
   demo: string | null;
   source: string;
@@ -14,7 +14,7 @@ export default function Languages({ project }: { project: Project }) {
       {project.languages.map((lang, index) => {
         return (
           <li className="text-xl text-accent-600" key={index}>
-            {lang.name}
+            {lang}
             {index !== project.languages.length - 1 && ","}
           </li>
         );

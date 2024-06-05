@@ -8,7 +8,7 @@ type Project = {
   category: string;
   title: string;
   description: string;
-  languages: { name: string }[];
+  languages: string[];
   image: string;
   demo: string | null;
   source: string | null;
@@ -28,7 +28,7 @@ export default function SwiperProject({
     <Swiper
       spaceBetween={30}
       slidesPerView={1}
-      className="mb-12 xl:h-[464px] relative"
+      className="relative mb-12 xl:h-[464px]"
       onSlideChange={handleChangeSlide}
     >
       {projects.map((project, index) => {
@@ -36,10 +36,10 @@ export default function SwiperProject({
           <SwiperSlide key={index} className="w-full">
             <div className="group relative flex h-[300px] items-center justify-center bg-accent-500/40 sm:h-[500px] md:h-[500px] lg:h-[400px]">
               <div className="absolute inset-0 z-10 bg-primary-950/10"></div>
-              <div className="relative h-full w-full aspect-square">
+              <div className="relative aspect-square h-full w-full">
                 <Image
-                  src={project.image}
-                  layout="fill"
+                  src={`${process.env.NEXT_PUBLIC_SOCKET_URL}/${project.image}`}
+                  fill
                   className="object-cover"
                   alt={project.title}
                 />
@@ -49,8 +49,9 @@ export default function SwiperProject({
         );
       })}
       <SliderButton
-        containerStyle="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none xl:mt-2"
-        buttonStyle="bg-accent-600 hover:bg-accent-700 text-primary-950 text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-full transition-all duration-300"
+        containerStyle="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none xl:mt-2 focus:ring-0 focus:ring-offset-0 focus:outline-none border-none shadow-none"
+        buttonStyle="bg-accent-600 hover:bg-accent-700 text-primary-950 text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-full transition-all duration-300 focus:ring-0 focus:ring-offset-0 focus:outline-none border-none shadow-none"
+        iconStyle="focus:ring-0 focus:ring-offset-0 focus:outline-none border-none shadow-none"
       />
     </Swiper>
   );

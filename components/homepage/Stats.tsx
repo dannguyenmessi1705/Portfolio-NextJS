@@ -6,9 +6,10 @@ import { useSocket } from "@/contexts/SocketProvider";
 type Props = {
   codeCommits: number;
   currentStreaks: number;
+  numProjects: number;
 };
 
-export default function Stats({ codeCommits, currentStreaks }: Props) {
+export default function Stats({ codeCommits, currentStreaks, numProjects }: Props) {
   const [profileStats, setProfileStats] = useState<Stats[]>(stats);
   const { users } = useSocket();
 
@@ -21,11 +22,13 @@ export default function Stats({ codeCommits, currentStreaks }: Props) {
           stat.count = codeCommits;
         } else if (stat.key === "currentStreaks") {
           stat.count = currentStreaks;
+        } else if (stat.key === "projects") {
+          stat.count = numProjects;
         }
       });
       return [...prev];
     });
-  }, [users, codeCommits, currentStreaks]);
+  }, [users, codeCommits, currentStreaks, numProjects]);
 
   return (
     <section>
