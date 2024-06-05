@@ -1,9 +1,14 @@
 "use client";
-import { Variants, useAnimationControls, useScroll, motion } from "framer-motion";
+import {
+  Variants,
+  useAnimationControls,
+  useScroll,
+  motion,
+} from "framer-motion";
 import { useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa6";
 
-const isBrowser = () => typeof window !== "undefined"; 
+const isBrowser = () => typeof window !== "undefined";
 
 function scrollToTop() {
   if (!isBrowser()) return;
@@ -31,7 +36,7 @@ export default function ButtonScrollTop() {
 
   return (
     <motion.button
-      className="fixed bottom-0 right-0 rounded-full bg-accent-600 p-4 m-10 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700 "
+      className="fixed bottom-0 right-0 m-10 rounded-full bg-accent-600 p-4 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700 "
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}
