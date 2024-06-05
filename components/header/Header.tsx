@@ -6,7 +6,7 @@ import NavigationMobile from "@/components/header/NavigationMobile";
 
 export default function Header() {
   return (
-    <header className="py-6 text-primary-50 xl:py-9">
+    <header className="py-6 text-primary-50 xl:py-9 sticky top-0">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/">
           <h1 className="text-4xl font-semibold">ZDiDane</h1>
