@@ -8,18 +8,10 @@ import {
 } from "@/components/ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
 import ProjectCard from "./ProjectCard";
+import { type Project, type Category } from "@/lib/data";
+import noImage from "@/public/assets/no-image.svg";
 
-type Category = "frontend" | "backend" | "others";
-type Project = {
-  id: string;
-  category: Category;
-  title: string;
-  description: string;
-  languages: { name: string }[];
-  image: string;
-  demo: string | null;
-  source: string;
-};
+
 export default function ProjectDetail({ project }: { project: Project }) {
   const { id, category, title, description, languages, image, demo, source } =
     project;
@@ -28,7 +20,11 @@ export default function ProjectDetail({ project }: { project: Project }) {
       <DialogTrigger asChild>
         <div className="p-3">
           <Image
-            src={image}
+            src={
+              image
+                ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${image}`
+                : noImage
+            }
             alt={title}
             priority
             width={540}
@@ -50,7 +46,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
         />
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button>Close</Button>
+            <Button className="border-none shadow-none focus:outline-none">
+              Close
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

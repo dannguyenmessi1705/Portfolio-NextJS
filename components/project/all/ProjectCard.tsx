@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import noImage from "@/public/assets/no-image.svg"
 
 type Props = {
   title: string;
   description: string;
-  languages: { name: string }[];
+  languages: string[];
   image: string;
   demo: string | null;
   source: string;
@@ -24,7 +25,11 @@ export default function ProjectCard({
       <div className="mb-6 md:mb-0">
         <div className="h- relative h-5/6 w-full">
           <Image
-            src={image}
+            src={
+              image
+                ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${image}`
+                : noImage
+            }
             alt={title}
             fill
             className="cursor-pointer object-cover"
@@ -60,7 +65,7 @@ export default function ProjectCard({
                 className="my-1 bg-accent-600 px-2 py-1 text-primary-50"
                 key={index}
               >
-                {lang.name}
+                {lang}
               </li>
             );
           })}

@@ -1,6 +1,6 @@
 // stats profile
 export type Stats = {
-    key: string;
+  key: string;
   count: number;
   description: string;
 };
@@ -24,5 +24,29 @@ export const stats: Stats[] = [
     key: "accessings",
     count: 0,
     description: "Accessings",
+  },
+];
+
+export type Category = "frontend" | "backend" | "others";
+export type Project = {
+  id: string;
+  category: Category;
+  title: string;
+  description: string;
+  languages: string[];
+  image: string;
+  demo: string | null;
+  source: string;
+};
+const projects: Project[] = [
+  {
+    id: "01",
+    category: "frontend",
+    title: "Project 1",
+    description: "Project 1 description",
+    languages: ["HTML 5", "CSS 3", "JavaScript"],
+    image: "/assets/projects/thumb1.png",
+    demo: "https://example.com",
+    source: "https://github.com",
   },
 ];

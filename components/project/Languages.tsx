@@ -1,13 +1,5 @@
-type Project = {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  languages: string[];
-  image: string;
-  demo: string | null;
-  source: string;
-};
+import { type Project } from "@/lib/data";
+
 export default function Languages({ project }: { project: Project }) {
   return (
     <ul className="flex gap-4">

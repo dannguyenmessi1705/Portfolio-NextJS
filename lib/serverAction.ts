@@ -40,8 +40,10 @@ export async function createProjectAction(data: FormData) {
   return res;
 }
 
-export async function getProjectsAction() {
-  const result = await axios.get(`${process.env.NEXT_BACKEND_URL}/projects`);
+export async function getProjectsAction(page: number = 0) {
+  const result = await axios.get(
+    `${process.env.NEXT_BACKEND_URL}/projects?page=${page}`,
+  );
   const res = await result.data;
   if (!res) throw new Error("Failed to fetch projects");
   return res;

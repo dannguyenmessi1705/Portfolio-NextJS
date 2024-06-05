@@ -3,16 +3,9 @@ import "swiper/css";
 import { Swiper as SwiperClass } from "swiper/types";
 import Image from "next/image";
 import SliderButton from "./SliderButton";
-type Project = {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  languages: string[];
-  image: string;
-  demo: string | null;
-  source: string | null;
-};
+import { type Project } from "@/lib/data";
+import noImage from "@/public/assets/no-image.svg";
+
 export default function SwiperProject({
   projects,
   setProject,
@@ -38,7 +31,7 @@ export default function SwiperProject({
               <div className="absolute inset-0 z-10 bg-primary-950/10"></div>
               <div className="relative aspect-square h-full w-full">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_SOCKET_URL}/${project.image}`}
+                  src={project.image ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${project.image}` : noImage}
                   fill
                   className="object-cover"
                   alt={project.title}

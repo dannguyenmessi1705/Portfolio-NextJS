@@ -18,8 +18,9 @@ export default function Photo() {
             src={avatar}
             alt="avatar"
             placeholder="blur"
-            priority
             fill
+            priority
+            quality={75}
             className="object-contain"
           />
         </div>

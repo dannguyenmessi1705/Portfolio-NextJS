@@ -5,16 +5,8 @@ import LinkProject from "./LinkProject";
 import Languages from "./Languages";
 import SwiperProject from "./SwiperProject";
 import NotFound from "@/app/not-found";
-type Project = {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  languages: string[];
-  image: string;
-  demo: string | null;
-  source: string;
-};
+import { type Project } from "@/lib/data";
+
 export default function Project({ projects }: { projects: Project[] }) {
   const [project, setProject] = useState<Project>(projects[0]);
   if (!project) return <NotFound message="There are no projects here" />;

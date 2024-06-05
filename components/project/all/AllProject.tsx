@@ -5,95 +5,9 @@ import NavbarProject from "./NavbarProject";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ProjectDetail from "./ProjectDetail";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
+import { type Category, type Project } from "@/lib/data";
 
-type Category = "frontend" | "backend" | "others";
-type Project = {
-  id: string;
-  category: Category;
-  title: string;
-  description: string;
-  languages: { name: string }[];
-  image: string;
-  demo: string | null;
-  source: string;
-};
-const projects: Project[] = [
-  {
-    id: "01",
-    category: "frontend",
-    title: "Project 1",
-    description: "Project 1 description",
-    languages: [{ name: "HTML 5" }, { name: "CSS 3" }, { name: "JavaScript" }],
-    image: "/assets/projects/thumb1.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "02",
-    category: "others",
-    title: "Project 2",
-    description: "Project 2 description",
-    languages: [
-      { name: "Next.JS" },
-      { name: "Tailwind Css" },
-      { name: "Nest.JS" },
-    ],
-    image: "/assets/projects/thumb2.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "03",
-    category: "backend",
-    title: "Project 3",
-    description: "Project 3 description",
-    languages: [{ name: "Spring Boot" }],
-    image: "/assets/projects/thumb3.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "04",
-    category: "backend",
-    title: "Project 3",
-    description: "Project 3 description",
-    languages: [{ name: "Spring Boot" }],
-    image: "/assets/projects/thumb3.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "05",
-    category: "backend",
-    title: "Project 3",
-    description: "Project 3 description",
-    languages: [{ name: "Spring Boot" }],
-    image: "/assets/projects/thumb3.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "06",
-    category: "backend",
-    title: "Project 3",
-    description: "Project 3 description",
-    languages: [{ name: "Spring Boot" }],
-    image: "/assets/projects/thumb3.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-  {
-    id: "07",
-    category: "backend",
-    title: "Project 3",
-    description: "Project 3 description",
-    languages: [{ name: "Spring Boot" }],
-    image: "/assets/projects/thumb3.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-];
-export default function AllProject() {
+export default function AllProject({ projects }: { projects: Project[] }) {
   const [project, setProject] = useState<Project[]>(projects);
   const [active, setActive] = useState<Category | "all">("all");
 
