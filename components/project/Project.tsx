@@ -6,10 +6,12 @@ import Languages from "./Languages";
 import SwiperProject from "./SwiperProject";
 import NotFound from "@/app/not-found";
 import { type Project } from "@/lib/data";
+import ProjectCreateForm from "./ProjectCreateForm";
 
 export default function Project({ projects }: { projects: Project[] }) {
   const [project, setProject] = useState<Project>(projects[0]);
-  if (!project) return <NotFound message="There are no projects here" />;
+  // if (!project) return <NotFound message="There are no projects here" />;
+  if (!project) return <ProjectCreateForm/>;
   return (
     <motion.section
       initial={{ opacity: 0 }}

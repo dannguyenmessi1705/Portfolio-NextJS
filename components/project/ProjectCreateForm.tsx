@@ -27,6 +27,8 @@ import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { createProjectAction } from "@/lib/serverAction";
+import axios from "axios";
+import { revalidatePath } from "next/cache";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -93,8 +95,9 @@ export default function ProjectCreateForm() {
     formData.append("category", values.category);
     formData.append("languages", values.languages);
     values.image && formData.append("image", values.image!);
-    createProjectAction(formData);
-    form.reset();
+    axios.post('/api/projects', formData)
+    // createProject(formData);
+    // form.reset();
   }
 
   return (
