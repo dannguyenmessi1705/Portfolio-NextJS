@@ -26,9 +26,7 @@ export function SocketProvider({ children }: Props) {
       reconnection: true,
       reconnectionAttempts: 5,
     });
-    socket.on("connect", () => {
-      console.log("connected");
-    });
+    if (!socket.connected) setUsers(0)
     socket.on("online-users", (user: number) => {
       setUsers(user);
     });

@@ -9,7 +9,7 @@ import { getProjectsAction } from "@/lib/serverAction";
 
 async function getData() {
   const data = await getProjectsAction();
-  return data?.length;
+  return data?.length ?? 0;
 }
 
 export default async function Home() {
