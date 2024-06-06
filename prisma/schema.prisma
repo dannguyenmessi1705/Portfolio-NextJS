@@ -1,0 +1,70 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Admin {
+  id    String @id @default(uuid())
+  name  String @unique
+  email String @unique
+  image String?
+  Blogs Blog[]
+  Projects Project[]
+}
+
+model Project {
+  id          String           @id @default(uuid())
+  title       String?
+  description String?
+  image       String?
+  demo        String?
+  source      String?
+  categoryId  String?
+  category    Category?        @relation(fields: [categoryId], references: [id])
+  userCreated String?
+  admin       Admin?           @relation(fields: [userCreated], references: [id])
+  date        DateTime?          @default(now())
+  languages   ProjectLanguage[]
+}
+
+model Category {
+  id    String    @id @default(uuid())
+  name  Name_t
+  Projects Project[]
+}
+
+model Language {
+  id    String    @id @default(uuid())
+  name  String?
+  ProjectLanguages ProjectLanguage[]
+}
+
+model Blog {
+  id          String    @id @default(uuid())
+  title       String?
+  date        DateTime? @default(now())
+  excerpt     String?
+  coverImage  String?
+  content     String?
+  userCreated String?
+  admin       Admin?    @relation(fields: [userCreated], references: [id])
+}
+
+model ProjectLanguage {
+  id         String   @id @default(uuid())
+  projectId  String
+  languageId String
+  project    Project  @relation(fields: [projectId], references: [id])
+  language   Language @relation(fields: [languageId], references: [id])
+}
+
+enum Name_t {
+  backend
+  frontend
+  others
+}
