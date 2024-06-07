@@ -9,10 +9,10 @@ const authConfig: NextAuthConfig = {
       clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
   ],
-  pages: {
-    signIn: "/signin",
-    signOut: "/signout",
-  },
+  // pages: {
+  //   signIn: "/signin",
+  //   signOut: "/signout",
+  // },
   callbacks: {
     async session({ session, user }) {
       const admin = await prisma.admin.findFirst({
