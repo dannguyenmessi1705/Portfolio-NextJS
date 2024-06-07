@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { PutBlobResult, put } from "@vercel/blob";
 import { type Category } from "@/lib/data";
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic"; // no need because validatePath when mutate data
 
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page") ?? "0";
