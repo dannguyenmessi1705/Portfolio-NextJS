@@ -23,9 +23,9 @@ export async function POST(req: NextRequest) {
   if (!session || session.user?.id !== process.env.ADMIN_ID) {
     return NextResponse.error();
   }
-
   // const body = await req.json();
   const body = await req.formData();
+  console.log(body.get("image") as File);
   const title = body.get("title") as string;
   const image = body.get("image") as File;
   const category = body.get("category") as Category;
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
         connect: { id: categoryFind.id },
       },
       admin: {
-        connect: { id: session.user?.id },
+        connect: { id: process.env.ADMIN_ID },
       },
       languages: {
         create: languages.map((language) => ({

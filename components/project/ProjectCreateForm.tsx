@@ -29,6 +29,7 @@ import Image from "next/image";
 import { createProjectAction } from "@/lib/serverAction";
 import axios from "axios";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -86,7 +87,14 @@ export default function ProjectCreateForm() {
     };
   }, [imagePreview]);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function createProject(data: FormData) {
+    await axios.post("/api/projects", data);
+    revalidatePath("/projects");
+    revalidatePath("/projects/all");
+    revalidatePath("/");
+    redirect("/projects/all");
+  }
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = new FormData();
     formData.append("title", values.title);
     formData.append("description", values.description);
@@ -95,9 +103,9 @@ export default function ProjectCreateForm() {
     formData.append("category", values.category);
     formData.append("languages", values.languages);
     values.image && formData.append("image", values.image!);
-    axios.post('/api/projects', formData)
-    // createProject(formData);
-    // form.reset();
+    await createProject(formData);
+    setImagePreview(null);
+    form.reset();
   }
 
   return (

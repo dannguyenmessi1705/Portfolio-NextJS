@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { signIn } from "./auth";
 import axios from "axios";
+import { redirect } from "next/navigation";
 
 export async function signInAction() {
   return signIn("github", { redirectTo: "/" });
@@ -28,7 +29,6 @@ export async function createProjectAction(data: FormData) {
     {
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: process.env.SECRET_PASSWORD!,
       },
     },
   );
@@ -37,7 +37,7 @@ export async function createProjectAction(data: FormData) {
   revalidatePath("/projects");
   revalidatePath("/projects/all");
   revalidatePath("/");
-  return res;
+  redirect("/projects/all");
 }
 
 export async function getProjectsAction(page: number = 0) {
