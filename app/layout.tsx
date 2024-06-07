@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Di Dan Nguyen",
     default: "Di Dan Nguyen's Portfolio",
   },
-  description: "Portfolio of Di Dan Nguyen",
+  description: "Portfolio of Nguyễn Di Đan",
   verification: {
     google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
   },
