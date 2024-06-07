@@ -6,7 +6,10 @@ import { auth } from "@/lib/auth";
 export const metadata: Metadata = {
   title: "Project",
   description:
-    "This is a project page of Di Dan Nguyen where you can view all the projects that I have worked on.",
+    "This is a project page of Nguyễn Di Đan where you can view all the projects that I have worked on.",
+  verification: {
+    google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+  },
 };
 
 async function getData(page: string = "0") {

@@ -1,4 +1,14 @@
 "use client";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Error",
+  description: "Something went wrong",
+  verification: {
+    google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+  },
+};
 export default function Error({ error, reset }: { error: any; reset: any }) {
   return (
     <main className="flex flex-col items-center justify-center gap-6">

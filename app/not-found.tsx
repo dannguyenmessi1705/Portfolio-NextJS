@@ -1,5 +1,13 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Not Found",
+  description: "This page could not be found",
+  verification: {
+    google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+  },
+};
 function NotFound({
   message = "This page could not be found :(",
 }: {
