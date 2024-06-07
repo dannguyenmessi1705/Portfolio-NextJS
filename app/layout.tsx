@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     default: "Di Dan Nguyen's Portfolio",
   },
   description: "Portfolio of Di Dan Nguyen",
+  verification: {
+    google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head />
       <SpeedInsights />
       <body className={jetbrains.className}>
         <main className="h-full w-full">
