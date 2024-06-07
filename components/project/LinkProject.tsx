@@ -57,7 +57,7 @@ export default function LinkProject({
         </TooltipProvider>
       </Link>
 
-      <Link href="projects/all" prefetch={true}>
+      <Link href="projects/all" prefetch={false}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
