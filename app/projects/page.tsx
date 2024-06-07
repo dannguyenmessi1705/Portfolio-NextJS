@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "This is a project page of Di Dan Nguyen where you can view all the projects that I have worked on.",
 };
 
-async function getData(page: number = 0) {
+async function getData(page: string = '0') {
   const data = await getProjectsAction(page);
   return data;
 }

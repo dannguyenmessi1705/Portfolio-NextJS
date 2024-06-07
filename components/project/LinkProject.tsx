@@ -25,7 +25,7 @@ type LinkProjectProps = {
 export default function LinkProject({ demo, source }: LinkProjectProps) {
   return (
     <div className="xl:mb-none mb-6 flex items-center gap-4">
-      <Link href={demo!}>
+      <Link href={demo ? demo : ""} target="_blank">
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
@@ -38,7 +38,7 @@ export default function LinkProject({ demo, source }: LinkProjectProps) {
         </TooltipProvider>
       </Link>
 
-      <Link href={source!}>
+      <Link href={source!} target="_blank">
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">

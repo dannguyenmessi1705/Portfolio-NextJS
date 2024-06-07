@@ -13,9 +13,38 @@ export async function GET(req: NextRequest) {
     projects = await prisma.project.findMany({
       skip: parseInt(page) * PER_PAGE,
       take: PER_PAGE,
+      include: {
+        category: true,
+        languages: {
+          include: { language: true },
+        },
+      },
+      orderBy: { date: "desc" },
     });
-  } else projects = await prisma.project.findMany();
-  return NextResponse.json(projects);
+  } else
+    projects = await prisma.project.findMany({
+      include: {
+        category: true,
+        languages: {
+          include: { language: true },
+        },
+      },
+      orderBy: { date: "desc" },
+    });
+  const transformedProjects = projects.map((project) => {
+    return {
+      id: project.id,
+      title: project.title,
+      description: project.description,
+      image: project.image,
+      demo: project.demo,
+      source: project.source,
+      date: project.date,
+      category: project.category?.name,
+      languages: project.languages.map((lang) => lang.language.name),
+    };
+  });
+  return NextResponse.json(transformedProjects);
 }
 
 export async function POST(req: NextRequest) {
@@ -25,14 +54,13 @@ export async function POST(req: NextRequest) {
   }
   // const body = await req.json();
   const body = await req.formData();
-  console.log(body.get("image") as File);
   const title = body.get("title") as string;
   const image = body.get("image") as File;
   const category = body.get("category") as Category;
   const description = body.get("description") as string;
   const demo = body.get("demo") as string;
   const source = body.get("source") as string;
-  let imagePath: string = '';
+  let imagePath: string = "";
   if (image) {
     const blob = await put(
       title!.replace(/\s/g, "") +
@@ -54,11 +82,11 @@ export async function POST(req: NextRequest) {
   // Tìm kiếm hoặc tạo các ngôn ngữ
   const languagePromises = languageNames.map(async (lang) => {
     let language = await prisma.language.findFirst({
-      where: { name: lang },
+      where: { name: lang.trim() },
     });
     if (!language) {
       language = await prisma.language.create({
-        data: { name: lang },
+        data: { name: lang.trim() },
       });
     }
     return language;

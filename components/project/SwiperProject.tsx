@@ -31,7 +31,7 @@ export default function SwiperProject({
               <div className="absolute inset-0 z-10 bg-primary-950/10"></div>
               <div className="relative aspect-square h-full w-full">
                 <Image
-                  src={project.image ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${project.image}` : noImage}
+                  src={project.image ? `${project.image}` : noImage}
                   fill
                   className="object-cover"
                   alt={project.title}

@@ -1,7 +1,7 @@
 import AllProject from "@/components/project/all/AllProject";
 import { getProjectsAction } from "@/lib/serverAction";
 
-async function getData(page: number = 0) {
+async function getData(page: string = '0') {
   const data = await getProjectsAction(page);
   return data;
 }

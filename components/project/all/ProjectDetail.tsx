@@ -22,7 +22,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <Image
               src={
                 image
-                  ? `${process.env.NEXT_PUBLIC_SOCKET_URL}/${image}`
+                  ? `${image}`
                   : noImage
               }
               alt={title}
