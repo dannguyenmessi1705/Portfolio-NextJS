@@ -11,6 +11,7 @@ const authConfig: NextAuthConfig = {
   ],
   pages: {
     signIn: "/signin",
+    signOut: "/signout",
   },
   callbacks: {
     async session({ session, user }) {

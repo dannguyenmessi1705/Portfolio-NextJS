@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const session = await auth();
-  if (!session || session.user?.id !== process.env.ADMIN_ID) {
+  if (!session || session.user?.id !== process.env.NEXT_PUBLIC_ADMIN_ID) {
     return NextResponse.error();
   }
   // const body = await req.json();
@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
         connect: { id: categoryFind.id },
       },
       admin: {
-        connect: { id: process.env.ADMIN_ID },
+        connect: { id: process.env.NEXT_PUBLIC_ADMIN_ID },
       },
       languages: {
         create: languages.map((language) => ({

@@ -6,12 +6,11 @@ import Languages from "./Languages";
 import SwiperProject from "./SwiperProject";
 import NotFound from "@/app/not-found";
 import { type Project } from "@/lib/data";
-import ProjectCreateForm from "./ProjectCreateForm";
+import { Session } from "next-auth";
 
-export default function Project({ projects }: { projects: Project[] }) {
+export default function Project({ projects, session }: { projects: Project[], session: Session | null }) {
   const [project, setProject] = useState<Project>(projects[0]);
-  // if (!project) return <NotFound message="There are no projects here" />;
-  if (!project) return <ProjectCreateForm/>;
+  if (!project) return <NotFound message="There are no projects here" />;
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -39,8 +38,8 @@ export default function Project({ projects }: { projects: Project[] }) {
 
               <Languages project={project} />
             </div>
-            <div className="border border-primary-800 mb-2 xl:mb-0"></div>
-            <LinkProject demo={project.demo} source={project.source} />
+            <div className="mb-2 border border-primary-800 xl:mb-0"></div>
+            <LinkProject demo={project.demo} source={project.source} session={session} />
           </div>
 
           <div className="w-full xl:w-[50%]">

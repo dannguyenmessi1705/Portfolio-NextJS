@@ -1,6 +1,6 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { signIn, auth } from "./auth";
+import { signIn, auth, signOut } from "./auth";
 import axios from "axios";
 import { redirect } from "next/navigation";
 import prisma from "./prisma";
@@ -9,6 +9,10 @@ import { type Category } from "./data";
 
 export async function signInAction() {
   return signIn("github", { redirectTo: "/" });
+}
+
+export async function signOutAction() {
+  return signOut({ redirectTo: "/" });
 }
 
 export async function sendEmailAction(data: any) {
@@ -27,7 +31,7 @@ export async function sendEmailAction(data: any) {
 
 export async function createProjectAction(data: FormData) {
   const session = await auth();
-  if (!session || session.user?.id !== process.env.ADMIN_ID) {
+  if (!session || session.user?.id !== process.env.NEXT_PUBLIC_ADMIN_ID) {
     throw new Error("Unauthorized");
   }
   const title = data.get("title") as string;
@@ -92,7 +96,7 @@ export async function createProjectAction(data: FormData) {
         connect: { id: categoryFind.id },
       },
       admin: {
-        connect: { id: process.env.ADMIN_ID },
+        connect: { id: process.env.NEXT_PUBLIC_ADMIN_ID },
       },
       languages: {
         create: languages.map((language) => ({
