@@ -33,14 +33,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <SpeedInsights />
       <body className={jetbrains.className}>
         <SocketProvider>
           <Header />
           <StarCanvas />
           <main className="h-full w-full">
             <CoverTransition />
-            <PageTransition>{children}</PageTransition>
+            <PageTransition>
+              {children}
+              <SpeedInsights />
+            </PageTransition>
           </main>
         </SocketProvider>
       </body>
