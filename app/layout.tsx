@@ -35,14 +35,14 @@ export default function RootLayout({
       <head />
       <SpeedInsights />
       <body className={jetbrains.className}>
-        <main className="h-full w-full">
-          <SocketProvider>
-            <Header />
+        <SocketProvider>
+          <Header />
+          <StarCanvas />
+          <main className="h-full w-full">
             <CoverTransition />
-            <StarCanvas />
             <PageTransition>{children}</PageTransition>
-          </SocketProvider>
-        </main>
+          </main>
+        </SocketProvider>
       </body>
     </html>
   );

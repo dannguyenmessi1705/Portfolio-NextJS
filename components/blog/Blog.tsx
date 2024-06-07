@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import PostCard from "./PostCard";
+import ButtonScrollTop from "../ui/ButtonScrollTop";
 
 type Post = {
   slug: string;
@@ -22,6 +23,9 @@ export default function Blog({ posts }: { posts: Post[] }) {
         {posts.map((post, index) => {
           return <PostCard key={index} post={post} />;
         })}
+      </div>
+      <div className="block sm:hidden">
+        <ButtonScrollTop />
       </div>
     </motion.section>
   );
