@@ -5,7 +5,9 @@ import axios from "axios";
 import { redirect } from "next/navigation";
 import prisma from "./prisma";
 import { put } from "@vercel/blob";
-import { type Category } from "./data";
+import { type Category, type Mail } from "./data";
+import sendEmail from "./sengrid";
+import { type MailDataRequired } from "@sendgrid/mail";
 
 export async function signInAction() {
   return signIn("github", { redirectTo: "/" });
@@ -15,18 +17,15 @@ export async function signOutAction() {
   return signOut({ redirectTo: "/" });
 }
 
-export async function sendEmailAction(data: any) {
-  try {
-    await fetch(`${process.env.NEXT_BACKEND_URL}/users/send-email`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: JSON.stringify(data),
-    });
-  } catch (error) {
-    throw new Error("Failed to send email");
-  }
+export async function sendEmailAction(body: Mail) {
+  const mail: MailDataRequired = {
+    to: process.env.SENDGRID_TO_EMAIL!,
+    from: process.env.SENDGRID_FROM_EMAIL!,
+    subject: "YOU HAVE A NEW MESSAGE",
+    templateId: process.env.SENDGRID_TEMPLATE_FORM_EMAIL!,
+    dynamicTemplateData: body,
+  };
+  await sendEmail(mail);
 }
 
 export async function createProjectAction(data: FormData) {

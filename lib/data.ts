@@ -50,3 +50,11 @@ const projects: Project[] = [
     source: "https://github.com",
   },
 ];
+
+export type Mail = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
