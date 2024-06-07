@@ -1,4 +1,4 @@
-import { getCurrentStreaks } from "@/api/github";
+import { getCurrentStreaks } from "@/lib/github";
 import Stats from "./Stats";
 
 export default async function StatsDisplay({
