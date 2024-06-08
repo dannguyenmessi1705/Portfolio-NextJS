@@ -51,6 +51,9 @@
 body .w-md-editor-toolbar {
     @apply bg-primary-900 text-primary-50
 }
+body .w-md-editor-toolbar li > button {
+    @apply text-primary-50 p-3 h-fit
+}
 body .w-md-editor-toolbar li > button:hover, 
 body .w-md-editor-toolbar li > button:focus,
 body .w-md-editor-toolbar li.active > button {
