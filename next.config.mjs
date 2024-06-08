@@ -1,12 +1,3 @@
-const removeImportsConfig = {
-  webpack: function (config) {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: "raw-loader",
-    });
-    return config;
-  },
-};
 // @ts-check
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -39,6 +30,15 @@ const nextConfig = {
     ],
   },
 };
-
-const removeImports = require("next-remove-imports")(removeImportsConfig);
-module.exports = removeImports(nextConfig);
+export default nextConfig;
+// const removeImportsConfig = {
+//   webpack: function (config) {
+//     config.module.rules.push({
+//       test: /\.md$/,
+//       use: "raw-loader",
+//     });
+//     return config;
+//   },
+// };
+// const removeImports = require("next-remove-imports")(removeImportsConfig);
+// module.exports = removeImports(nextConfig);
