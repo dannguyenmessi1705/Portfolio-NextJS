@@ -1,3 +1,13 @@
+const removeImportsConfig = {
+  webpack: function (config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    });
+    return config;
+  },
+};
+// @ts-check
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -30,4 +40,5 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const removeImports = require("next-remove-imports")(removeImportsConfig);
+module.exports = removeImports(nextConfig);
