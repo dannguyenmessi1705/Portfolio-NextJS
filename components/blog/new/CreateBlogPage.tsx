@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MarkdownEdit from "./MarkdownEdit";
+import CreateBlogForm from "./CreateBlogForm";
 
 export default function CreateBlogPage() {
   return (
@@ -13,7 +13,9 @@ export default function CreateBlogPage() {
       }}
       className="py-2"
     >
-      <MarkdownEdit />
+      <div className="container mx-auto">
+        <CreateBlogForm />
+      </div>
     </motion.section>
   );
 }

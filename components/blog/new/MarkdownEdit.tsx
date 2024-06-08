@@ -21,14 +21,21 @@ import MDEditor from "@uiw/react-md-editor";
 //   () => import("@uiw/react-markdown-preview").then((mod) => mod.default),
 //   { ssr: false },
 // );
+type Props = {
+  value: string;
+  setValue: Function;
+  onChangeForm: Function;
+};
 
-export default function MarkdownEdit() {
-  const [value, setValue] = useState<string>("Let's write an article!");
+export default function MarkdownEdit({ value, setValue, onChangeForm }: Props) {
   return (
     <div className="container mx-auto">
       <MDEditor
         value={value}
-        onChange={(newValue: string = "") => setValue(newValue)}
+        onChange={(newValue: string = "") => {
+          setValue(newValue);
+          onChangeForm(newValue);
+        }}
         fullscreen={false}
         preview="edit"
         className=""
