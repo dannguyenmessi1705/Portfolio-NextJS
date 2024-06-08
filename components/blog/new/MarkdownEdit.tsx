@@ -1,13 +1,10 @@
 "use client";
-
-// import dynamic from "next/dynamic";
-
-import { useState } from "react";
-import MDEditor from "@uiw/react-md-editor";
-// const MDEditor = dynamic(
-//   () => import("@uiw/react-md-editor").then((mod) => mod.default),
-//   { ssr: false },
-// );
+import dynamic from "next/dynamic";
+// import MDEditor from "@uiw/react-md-editor";
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor").then((mod) => mod.default),
+  { ssr: false },
+);
 
 // const EditerMarkdown = dynamic(
 //   () =>

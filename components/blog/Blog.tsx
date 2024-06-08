@@ -1,15 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import PostCard from "./PostCard";
+import BlogCard from "./BlogCard";
 import ButtonScrollTop from "../ui/ButtonScrollTop";
+import { type Blog } from "@/lib/data";
 
-type Post = {
-  slug: string;
-  frontmatter: {
-    [key: string]: any;
-  };
-};
-export default function Blog({ posts }: { posts: Post[] }) {
+export default function Blog({ blogs }: { blogs: Blog[] }) {
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -20,8 +15,8 @@ export default function Blog({ posts }: { posts: Post[] }) {
       className="py-2"
     >
       <div className="container mx-auto mt-[30px] grid grid-cols-[1fr] gap-[30px] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {posts.map((post, index) => {
-          return <PostCard key={index} post={post} />;
+        {blogs.map((blog, index) => {
+          return <BlogCard key={index} blog={blog} />;
         })}
       </div>
       <div className="block sm:hidden">

@@ -58,3 +58,14 @@ export type Mail = {
   phone: string;
   message: string;
 };
+
+export type Blog = {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  coverImage: string;
+  date: string;
+  adminName: string;
+  adminAvatar: string;
+}
