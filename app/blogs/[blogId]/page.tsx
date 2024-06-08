@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: { params: any }) {
 
 async function getBlog(blogId: string) {
   const blog = (await getBlogAction(blogId)) as Blog;
+  const processedContent = await remark().use(html).process(blog.content);
+  const contentHtml = processedContent.toString();
   return {
     id: blog?.id,
     title: blog?.title,
@@ -34,6 +36,7 @@ async function getBlog(blogId: string) {
     date: blog?.date,
     adminName: blog?.adminName,
     adminAvatar: blog?.adminAvatar,
+    contentHtml,
   };
 
   // // read markdown file
@@ -85,6 +88,7 @@ export default async function page({ params }: any) {
     date,
     adminName,
     adminAvatar,
+    contentHtml
   } = await getBlog(blogId);
 
   return (
@@ -110,7 +114,7 @@ export default async function page({ params }: any) {
           <MarkdownDisplay value={content} />
         </div>
         {/* <div className="prose prose-invert mx-auto w-3/4 lg:prose-xl">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div> */}
       </div>
       <ButtonScrollTop />
