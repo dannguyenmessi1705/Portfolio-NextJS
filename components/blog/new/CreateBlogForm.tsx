@@ -1,32 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { createProjectAction } from "@/lib/serverAction";
+import { createBlogAction } from "@/lib/serverAction";
 import MarkdownEdit from "./MarkdownEdit";
 
 const formSchema = z.object({
@@ -68,18 +56,15 @@ export default function CreateBlogForm() {
   }, [imagePreview]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // const formData = new FormData();
-    // formData.append("title", values.title);
-    // formData.append("description", values.description);
-    // formData.append("demo", values.demo);
-    // formData.append("source", values.source);
-    // formData.append("category", values.category);
-    // formData.append("languages", values.languages);
-    // values.image && formData.append("image", values.image!);
-    // await createProjectAction(formData);
-    // setImagePreview(null);
-    // form.reset();
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("excerpt", values.excerpt);
+    formData.append("content", values.content);
+    values.image && formData.append("image", values.image!);
+    await createBlogAction(formData);
+    setImagePreview(null);
+    setValue("");
+    form.reset();
   }
 
   return (

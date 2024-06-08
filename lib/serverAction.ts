@@ -125,3 +125,41 @@ export async function getProjectsAction(page: string = "0") {
     return [];
   }
 }
+
+export async function createBlogAction(data: FormData) {
+    const session = await auth();
+    if (!session || session.user?.id !== process.env.NEXT_PUBLIC_ADMIN_ID) {
+      throw new Error("Unauthorized");
+    }
+    const title = data.get("title") as string;
+    const image = data.get("image") as File;
+    const excerpt = data.get("excerpt") as string;
+    const content = data.get("content") as string;
+    let imagePath: string = "";
+    if (image) {
+      const blob = await put(
+        title!.replace(/\s/g, "") +
+          "-" +
+          Date.now() +
+          "." +
+          image.name.split(".")[1],
+        image,
+        {
+          access: "public",
+        },
+      );
+      imagePath = blob.url;
+    }
+    const newBlog = await prisma.blog.create({
+      data: {
+        title: title,
+        excerpt: excerpt,
+        content: content,
+        coverImage: imagePath ?? null,
+        admin: {
+          connect: { id: process.env.NEXT_PUBLIC_ADMIN_ID },
+        },
+      },
+    });
+
+}
