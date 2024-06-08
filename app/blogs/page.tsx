@@ -2,6 +2,15 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Blog from "@/components/blog/Blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Nguyễn Di Đan's blog",
+  verification: {
+    google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+  },
+};
 
 async function Page() {
   const posts = await getPost();

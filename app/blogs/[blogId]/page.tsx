@@ -5,15 +5,20 @@ import { remark } from "remark";
 import html from "remark-html";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
   const {
-    frontmatter: { title, date, cover_image },
+    frontmatter: { title, date, cover_image, content },
   } = await getPost(blogId);
   return {
     title,
-  };
+    description: content.length > 100 ? content.slice(0, 100) : content,
+    verification: {
+      google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
+    },
+  } as Metadata;
 }
 
 export async function generateStaticParams() {
@@ -72,7 +77,7 @@ export default async function page({ params }: any) {
           height={300}
           crossOrigin="use-credentials"
         />
-        <div className="prose lg:prose-xl prose-invert mx-auto w-3/4">
+        <div className="prose prose-invert mx-auto w-3/4 lg:prose-xl">
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
       </div>
