@@ -162,4 +162,7 @@ export async function createBlogAction(data: FormData) {
       },
     });
 
+    revalidatePath("/blogs");
+    revalidatePath("/");
+    redirect("/blogs");
 }
