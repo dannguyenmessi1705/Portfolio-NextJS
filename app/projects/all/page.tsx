@@ -1,12 +1,16 @@
-import AllProject from "@/components/project/all/AllProject";
-import { getProjectsAction } from "@/lib/serverAction";
-
-async function getData(page: string = '0') {
-  const data = await getProjectsAction(page);
-  return data;
-}
+import AllProjectList from "@/components/project/all/AllProjectList";
+import ProjectsSkeleton from "@/components/project/all/ProjectsSekeleton";
+import { Suspense } from "react";
 
 export default async function page() {
-  const projects = await getData();
-  return <AllProject projects={projects} />;
+  return (
+    <section className="h-full">
+      <div className="container mx-auto h-full xl:mb-6">
+        <Suspense fallback={<ProjectsSkeleton />}>
+          <AllProjectList />
+        </Suspense>
+      </div>
+    </section>
+  );
+  // return <AllProject projects={projects} />;
 }

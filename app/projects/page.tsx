@@ -16,9 +16,11 @@ export const metadata: Metadata = {
 async function Page() {
   const session = await auth();
   return (
-    <Suspense fallback={<ProjectSekeleton />}>
-      <ProjectListCard session={session} />
-    </Suspense>
+    <>
+      <Suspense fallback={<ProjectSekeleton />}>
+        <ProjectListCard session={session} />
+      </Suspense>
+    </>
   );
 }
 
