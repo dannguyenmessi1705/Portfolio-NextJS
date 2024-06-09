@@ -5,11 +5,11 @@ import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 import Stats from "@/components/homepage/Stats";
-import { getProjectsAction } from "@/lib/serverAction";
+import { getNumberProjectsAction } from "@/lib/serverAction";
 
 async function getData() {
-  const data = await getProjectsAction();
-  return data?.length ?? 0;
+  const data = await getNumberProjectsAction();
+  return data;
 }
 
 export default async function Home() {
@@ -55,8 +55,10 @@ export default async function Home() {
         </div>
       </div>
 
-      <Suspense fallback={<Stats codeCommits={0} currentStreaks={0} numProjects={0}/>}>
-        <StatsDisplay numProjects={numProjects}/>
+      <Suspense
+        fallback={<Stats codeCommits={0} currentStreaks={0} numProjects={0} />}
+      >
+        <StatsDisplay numProjects={numProjects} />
       </Suspense>
     </section>
   );

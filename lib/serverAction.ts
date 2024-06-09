@@ -180,6 +180,11 @@ export async function getBlogsAction(page: string = "0") {
   }
 }
 
+export async function getNumberProjectsAction() {
+  const numberProjects = await prisma.project.count();
+  return numberProjects;
+}
+
 export async function getBlogAction(blogId: string) {
   try {
     const result = await axios.get(
