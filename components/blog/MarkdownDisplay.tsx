@@ -1,6 +1,5 @@
 "use client";
 import dynamic from "next/dynamic";
-import "@uiw/react-markdown-preview/markdown.css";
 const Markdown = dynamic(
   () => import("@uiw/react-markdown-preview").then((mod) => mod.default),
   { ssr: false },

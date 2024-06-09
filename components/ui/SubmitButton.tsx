@@ -10,7 +10,6 @@ export default function SubmitButton({
   pending: boolean;
   children: ReactNode;
 }) {
-  console.log(pending);
   return (
     <Button
       size="sm"

@@ -1,6 +1,5 @@
 "use client";
 import dynamic from "next/dynamic";
-import "@uiw/react-md-editor/markdown-editor.css";
 const MDEditor = dynamic(
   () => import("@uiw/react-md-editor").then((mod) => mod.default),
   { ssr: false },
