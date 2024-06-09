@@ -5,7 +5,7 @@ import { signInAction } from "@/lib/serverAction";
 function SignInButton() {
   return (
     <form action={signInAction}>
-      <button className="flex items-center gap-6 border border-primary-300 px-10 py-4 text-lg font-medium hover:bg-accent-600 hover:text-primary-950 hover:border-primary-900 transition-all duration-300">
+      <button className="flex items-center gap-6 rounded-sm border border-accent-800 bg-accent-700 px-10 py-4 text-lg font-medium text-primary-950 transition-all duration-300 hover:border-primary-900 hover:bg-accent-600">
         <Image
           src="https://authjs.dev/img/providers/github.svg"
           alt="Google logo"
