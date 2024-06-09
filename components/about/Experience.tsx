@@ -1,51 +1,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-type Experience = {
-  position: string;
-  descriptions: string[];
-};
-type Info = {
-  icon: string;
-  title: string;
-  description: string;
-  experiences: Experience[];
-};
+import { experience } from "@/lib/data";
 
-const experience: Info = {
-  icon: "/assets/about-me/badge.svg",
-  title: "My Experience",
-  description:
-    "I have been working in the IT field for a long time, and I have gained a lot of experience. Here are some of my experiences",
-  experiences: [
-    {
-      position: "Back-end Developer",
-      descriptions: [
-        "Joining in some projects about education, rebuild, environment,... ",
-        "Studied knowledge: API, Database, Load Balancing, Frameworks.",
-      ],
-    },
-    {
-      position: "Front-end Developer",
-      descriptions: [
-        "Joining in some projects, studies with HTML, CSS, and React JS.",
-        "Studied and Shared knowledge: Bootstrap, TailwindCSS.",
-      ],
-    },
-    {
-      position: "IT Support",
-      descriptions: [
-        "Joining in some courses online and practicing in the real world.",
-        "Working with Hardware, Software, Networking, and OS as Linux, Windows",
-      ],
-    },
-    {
-      position: "Network",
-      descriptions: [
-        "Joined and learned about the Network from Enterprise in Summer.",
-        "Participated in a networking lab courses at the university.",
-      ],
-    },
-  ],
-};
 export default function Experience() {
   return (
     <div className="flex flex-col gap-[30px] text-center xl:text-left">

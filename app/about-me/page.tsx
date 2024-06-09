@@ -9,7 +9,11 @@ export const metadata: Metadata = {
   },
 };
 function Page() {
-  return <AboutMe />;
+  return (
+    <section className="h-full w-full">
+      <AboutMe />
+    </section>
+  );
 }
 
 export default Page;
