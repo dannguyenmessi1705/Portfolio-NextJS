@@ -1,3 +1,4 @@
+import removeImports from "next-remove-imports";
 // @ts-check
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -29,8 +30,21 @@ const nextConfig = {
       },
     ],
   },
+  webpack: function (config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    });
+    return config;
+  },
 };
-export default nextConfig;
+/** @type {function(import("next").NextConfig): import("next").NextConfig}} */
+const removeImportsFun = removeImports({
+  test: /node_modules([\s\S]*?)\.(tsx|ts|js|mjs|jsx)$/,
+  matchImports: "\\.(less|css|scss|sass|styl)$",
+});
+
+export default removeImportsFun(nextConfig);
 // const removeImportsConfig = {
 //   webpack: function (config) {
 //     config.module.rules.push({
