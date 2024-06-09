@@ -5,7 +5,7 @@ import avatar from "@/public/assets/avatar.webp";
 
 export default function Photo() {
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full rounded-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -13,7 +13,7 @@ export default function Photo() {
           transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
         }}
       >
-        <div className=" absolute left-0 right-0 m-auto h-[198px] w-[198px] mix-blend-lighten xl:h-[398px] xl:w-[398px]">
+        <div className="absolute left-0 right-0 m-auto h-[198px] w-[198px] overflow-hidden rounded-full mix-blend-lighten xl:h-[398px] xl:w-[398px]">
           <Image
             src={avatar}
             alt="avatar"
@@ -21,12 +21,12 @@ export default function Photo() {
             fill
             priority
             quality={10}
-            className="object-contain"
+            className="pointer-events-none object-contain"
           />
         </div>
 
         <motion.svg
-          className="h-[235px] w-[235px] xl:h-[465px] xl:w-[465px]"
+          className="h-[220px] w-[220px] xl:h-[430px] xl:w-[430px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"
