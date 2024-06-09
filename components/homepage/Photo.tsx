@@ -20,7 +20,7 @@ export default function Photo() {
             placeholder="blur"
             fill
             priority
-            quality={75}
+            quality={10}
             className="object-contain"
           />
         </div>

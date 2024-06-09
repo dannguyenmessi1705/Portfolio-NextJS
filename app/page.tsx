@@ -1,10 +1,10 @@
 import { FaDownload } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
 import Socials from "@/components/homepage/Socials";
 import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 import Stats from "@/components/homepage/Stats";
+import Link from "next/link";
 
 export default async function page() {
   return (
@@ -25,16 +25,14 @@ export default async function page() {
             </p>
 
             <div className="flex flex-col items-center gap-8 xl:flex-row">
-              <form action="/assets/cv/cv.pdf" method="get">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="flex items-center gap-2 uppercase"
-                >
-                  <span>Download my CV</span>
-                  <FaDownload className="text-xl" />
-                </Button>
-              </form>
+              <Link
+                href="https://i2cyjyqqpqfhs8o3.public.blob.vercel-storage.com/cv-pAmCdK2AOjapK1fV04xXLk6kb07ztD.pdf"
+                target="_blank"
+                className="flex items-center justify-center gap-2 rounded-md border border-accent-700 bg-accent-600 px-4 py-2 uppercase text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-accent-800"
+              >
+                <span>Download my CV</span>
+                <FaDownload className="text-xl" />
+              </Link>
 
               <div className="mb-6 xl:mb-0">
                 <Socials />
