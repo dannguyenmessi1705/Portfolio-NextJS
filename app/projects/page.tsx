@@ -1,7 +1,8 @@
-import Project from "@/components/project/Project";
-import { getProjectsAction } from "@/lib/serverAction";
 import { Metadata } from "next";
 import { auth } from "@/lib/auth";
+import ProjectListCard from "@/components/project/ProjectListCard";
+import { Suspense } from "react";
+import ProjectSekeleton from "@/components/project/ProjectSekeleton";
 
 export const metadata: Metadata = {
   title: "Project",
@@ -12,15 +13,13 @@ export const metadata: Metadata = {
   },
 };
 
-async function getData(page: string = "0") {
-  const data = await getProjectsAction(page);
-  return data;
-}
-
 async function Page() {
   const session = await auth();
-  const projects = await getData();
-  return <Project projects={projects} session={session} />;
+  return (
+    <Suspense fallback={<ProjectSekeleton />}>
+      <ProjectListCard session={session} />
+    </Suspense>
+  );
 }
 
 export default Page;

@@ -6,7 +6,7 @@ import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 import Stats from "@/components/homepage/Stats";
 
-export default function page() {
+export default async function page() {
   return (
     <section className="h-full">
       <div className="container mx-auto h-full xl:mb-6">
