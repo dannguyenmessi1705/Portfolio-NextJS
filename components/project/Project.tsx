@@ -42,7 +42,7 @@ export default function Project({ projects, session }: { projects: Project[], se
             <LinkProject demo={project.demo} source={project.source} session={session} />
           </div>
 
-          <div className="w-full xl:w-[50%]">
+          <div className="w-full xl:w-[50%] xl:h-[420px]">
             <SwiperProject projects={projects} setProject={setProject} />
           </div>
         </div>
