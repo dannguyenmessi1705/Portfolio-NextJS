@@ -12,10 +12,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import { createBlogAction } from "@/lib/serverAction";
 import MarkdownEdit from "./MarkdownEdit";
+import SubmitButton from "@/components/ui/SubmitButton";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -36,6 +37,7 @@ const formSchema = z.object({
 });
 
 export default function CreateBlogForm() {
+  const [isPending, startTransition] = useTransition();
   const [value, setValue] = useState<string>("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -61,7 +63,7 @@ export default function CreateBlogForm() {
     formData.append("excerpt", values.excerpt);
     formData.append("content", values.content);
     values.image && formData.append("image", values.image!);
-    await createBlogAction(formData);
+    startTransition(() => createBlogAction(formData));
     setImagePreview(null);
     setValue("");
     form.reset();
@@ -143,6 +145,7 @@ export default function CreateBlogForm() {
                                 src={imagePreview}
                                 alt="preview"
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-cover"
                               />
                             </DialogContent>
@@ -177,9 +180,9 @@ export default function CreateBlogForm() {
           }}
         />
 
-        <Button size="sm" className="mt-6 max-w-40" type="submit">
+        <SubmitButton pending={isPending} labelPending="Creating...">
           Create Project
-        </Button>
+        </SubmitButton>
       </form>
     </Form>
   );

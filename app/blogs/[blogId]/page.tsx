@@ -108,6 +108,7 @@ export default async function page({ params }: any) {
           className="mx-auto w-3/4"
           width={1200}
           height={300}
+          quality={80}
           crossOrigin="use-credentials"
         />
         <div className="" data-color-mode="light">

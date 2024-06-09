@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
@@ -14,7 +13,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useTransition } from "react";
 import { sendEmailAction } from "@/lib/serverAction";
+import SubmitButton from "../ui/SubmitButton";
 
 const formSchema = z.object({
   firstName: z.string().min(1, {
@@ -35,6 +36,7 @@ const formSchema = z.object({
 });
 
 export default function FormContact() {
+  const [isPending, startTransition] = useTransition();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,7 +49,8 @@ export default function FormContact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    sendEmailAction(values);
+    const message = values;
+    startTransition(() => sendEmailAction(message));
     // delete all values
     form.reset();
   }
@@ -154,9 +157,9 @@ export default function FormContact() {
           }}
         />
 
-        <Button size="sm" className="mt-6 max-w-40" type="submit">
+        <SubmitButton pending={isPending} labelPending="Sending...">
           Send message
-        </Button>
+        </SubmitButton>
       </form>
     </Form>
   );

@@ -1,4 +1,5 @@
 "use client";
+import SubmitButton from "@/components/ui/SubmitButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,7 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import { createProjectAction } from "@/lib/serverAction";
 
@@ -63,6 +64,7 @@ const formSchema = z.object({
 });
 
 export default function ProjectCreateForm() {
+  const [isPending, startTransition] = useTransition();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -93,7 +95,7 @@ export default function ProjectCreateForm() {
     formData.append("category", values.category);
     formData.append("languages", values.languages);
     values.image && formData.append("image", values.image!);
-    await createProjectAction(formData);
+    startTransition(() => createProjectAction(formData));
     setImagePreview(null);
     form.reset();
   }
@@ -268,9 +270,7 @@ export default function ProjectCreateForm() {
           }}
         />
 
-        <Button size="sm" className="mt-6 max-w-40" type="submit">
-          Create Project
-        </Button>
+        <SubmitButton labelPending="Creating..." pending={isPending}>Create Project</SubmitButton>
       </form>
     </Form>
   );

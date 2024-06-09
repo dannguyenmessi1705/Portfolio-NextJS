@@ -25,13 +25,11 @@ export default function ProjectCard({
       <div className="mb-6 md:mb-0">
         <div className="relative h-5/6 w-full">
           <Image
-            src={
-              image
-                ? `${image}`
-                : noImage
-            }
-            alt={title}
+            src={image ? `${image}` : noImage}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            quality={80}
+            alt={title}
             className="cursor-pointer object-cover"
           />
         </div>

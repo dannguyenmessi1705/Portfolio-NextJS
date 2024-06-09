@@ -17,17 +17,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="p-3 flex flex-col">
+        <div className="flex flex-col p-3">
           <div className="relative aspect-video h-2/3 w-full">
             <Image
-              src={
-                image
-                  ? `${image}`
-                  : noImage
-              }
+              src={image ? `${image}` : noImage}
               alt={title}
               priority
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={80}
               className="cursor-pointer object-cover"
             />
           </div>
