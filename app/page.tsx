@@ -5,15 +5,8 @@ import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 import Stats from "@/components/homepage/Stats";
-import { getNumberProjectsAction } from "@/lib/serverAction";
 
-async function getData() {
-  const data = await getNumberProjectsAction();
-  return data;
-}
-
-export default async function Home() {
-  const numProjects = await getData();
+export default function page() {
   return (
     <section className="h-full">
       <div className="container mx-auto h-full xl:mb-6">
@@ -58,7 +51,7 @@ export default async function Home() {
       <Suspense
         fallback={<Stats codeCommits={0} currentStreaks={0} numProjects={0} />}
       >
-        <StatsDisplay numProjects={numProjects} />
+        <StatsDisplay />
       </Suspense>
     </section>
   );
