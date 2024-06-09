@@ -30,9 +30,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizeCss: true,
-  }
   
 };
 // /** @type {function(import("next").NextConfig): import("next").NextConfig}} */
