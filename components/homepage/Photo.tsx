@@ -34,7 +34,7 @@ export default function Photo() {
           <motion.circle
             cx="255"
             cy="250"
-            r="250"
+            r="248"
             stroke="#B78343"
             strokeWidth="4"
             strokeLinecap="round"
