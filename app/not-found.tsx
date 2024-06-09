@@ -14,15 +14,19 @@ function NotFound({
   message: string;
 }) {
   return (
-    <main className="mt-4 space-y-6 text-center">
-      <h1 className="text-3xl font-semibold">{message}</h1>
-      <Link
-        href="/"
-        className="inline-block rounded-sm bg-accent-700 px-6 py-3 text-lg text-primary-50 transition-colors hover:bg-accent-600"
-      >
-        Go back home
-      </Link>
-    </main>
+    <section className="h-full w-full">
+      <div className="container mx-auto">
+        <div className="mt-10 flex flex-col items-center justify-center gap-10">
+          <h1 className="text-center text-3xl font-semibold">{message}</h1>
+          <Link
+            href="/"
+            className="flex items-center gap-6 rounded-sm border border-accent-800 bg-accent-700 px-10 py-4 text-lg font-medium text-primary-950 transition-all duration-300 hover:border-primary-900 hover:bg-accent-600"
+          >
+            Go back home
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 
