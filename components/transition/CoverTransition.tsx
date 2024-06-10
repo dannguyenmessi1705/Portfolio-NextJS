@@ -2,15 +2,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Cover from "./Cover";
 import { usePathname } from "next/navigation";
-export default function CoverTransition() {
+export default function CoverTransition({children}: {children: React.ReactNode}) {
   const pathName = usePathname();
   return (
     <>
       <AnimatePresence mode="wait">
-        <div key={pathName}>
-          <div className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex h-screen w-screen">
+        <motion.div key={pathName}>
+          <motion.div className="pointer-events-none fixed left-0 right-0 top-0 z-40 flex h-screen w-screen">
             <Cover />
-          </div>
+          </motion.div>
           <motion.div
             initial={{ opacity: 1 }}
             animate={{
@@ -19,7 +19,8 @@ export default function CoverTransition() {
             }}
             className="pointer-events-none fixed top-0 h-screen w-screen bg-primary-950"
           />
-        </div>
+        </motion.div>
+        {children}
       </AnimatePresence>
     </>
   );
