@@ -8,7 +8,13 @@ import NotFound from "@/app/not-found";
 import { type Project } from "@/lib/data";
 import { Session } from "next-auth";
 
-export default function Project({ projects, session }: { projects: Project[], session: Session | null }) {
+export default function Project({
+  projects,
+  session,
+}: {
+  projects: Project[];
+  session: Session | null;
+}) {
   const [project, setProject] = useState<Project>(projects[0]);
   if (!project) return <NotFound message="There are no projects here" />;
   return (
@@ -22,8 +28,8 @@ export default function Project({ projects, session }: { projects: Project[], se
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="order-2 flex w-full flex-col xl:order-none xl:h-[420px] xl:w-[50%] xl:justify-between">
-            <div className="flex h-[70%] flex-col gap-[30px]">
+          <div className="order-2 flex h-[480px] w-full flex-col xl:order-none xl:h-[420px] xl:w-[50%] xl:justify-between">
+            <div className="flex h-3/4 flex-col gap-[30px]">
               <div className="text-4xl font-extrabold leading-none">
                 {project.title}
               </div>
@@ -39,10 +45,14 @@ export default function Project({ projects, session }: { projects: Project[], se
               <Languages project={project} />
             </div>
             <div className="mb-2 border border-primary-800 xl:mb-0"></div>
-            <LinkProject demo={project.demo} source={project.source} session={session} />
+            <LinkProject
+              demo={project.demo}
+              source={project.source}
+              session={session}
+            />
           </div>
 
-          <div className="w-full xl:w-[50%] xl:h-[420px]">
+          <div className="w-full xl:h-[420px] xl:w-[50%]">
             <SwiperProject projects={projects} setProject={setProject} />
           </div>
         </div>

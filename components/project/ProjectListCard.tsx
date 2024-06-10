@@ -8,5 +8,6 @@ export default async function ProjectListCard({
   session: Session | null;
 }) {
   const projects = await getProjectsAction("all");
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   return <Project projects={projects} session={session} />;
 }

@@ -31,18 +31,20 @@ export default function LinkProject({
 }: LinkProjectProps) {
   return (
     <div className="xl:mb-none mb-6 flex items-center gap-4">
-      <Link href={demo ? demo : ""} target="_blank">
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-            <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
-              <BsArrowUpRight className="text-4xl text-primary-50 group-hover:text-accent-600" />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>View Demo</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </Link>
+      {demo && (
+        <Link href={demo} target="_blank">
+          <TooltipProvider delayDuration={100}>
+            <Tooltip>
+              <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+                <BsArrowUpRight className="text-4xl text-primary-50 group-hover:text-accent-600" />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>View Demo</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </Link>
+      )}
 
       <Link href={source!} target="_blank">
         <TooltipProvider delayDuration={100}>
@@ -70,30 +72,31 @@ export default function LinkProject({
         </TooltipProvider>
       </Link>
 
-      {session?.user && session.user.id === process.env.NEXT_PUBLIC_ADMIN_ID && (
-        <Dialog>
-          <DialogTrigger asChild>
-            <div>
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
-                    <BsPlus className="text-6xl text-primary-50 group-hover:text-accent-600" />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Add Project</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="w-full">
-            <DialogHeader>
-              <h2 className="text-2xl font-bold">Add Project</h2>
-            </DialogHeader>
-            <ProjectCreateForm />
-          </DialogContent>
-        </Dialog>
-      )}
+      {session?.user &&
+        session.user.id === process.env.NEXT_PUBLIC_ADMIN_ID && (
+          <Dialog>
+            <DialogTrigger asChild>
+              <div>
+                <TooltipProvider delayDuration={100}>
+                  <Tooltip>
+                    <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
+                      <BsPlus className="text-6xl text-primary-50 group-hover:text-accent-600" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Add Project</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+            </DialogTrigger>
+            <DialogContent className="w-full">
+              <DialogHeader>
+                <h2 className="text-2xl font-bold">Add Project</h2>
+              </DialogHeader>
+              <ProjectCreateForm />
+            </DialogContent>
+          </Dialog>
+        )}
     </div>
   );
 }
