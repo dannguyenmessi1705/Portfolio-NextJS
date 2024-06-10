@@ -35,10 +35,10 @@ export default function RootLayout({
             {/* <CoverTransition> */}
             {/* </CoverTransition> */}
 
-            <PageTransition>
+            {/* <PageTransition> */}
               {children}
               <SpeedInsights />
-            </PageTransition>
+            {/* </PageTransition> */}
           </main>
         </SocketProvider>
       </body>

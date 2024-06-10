@@ -3,13 +3,18 @@ import CountUp from "react-countup";
 import { stats, type Stats } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { useSocket } from "@/contexts/SocketProvider";
+import { motion } from "framer-motion";
 type Props = {
   codeCommits: number;
   currentStreaks: number;
   numProjects: number;
 };
 
-export default function Stats({ codeCommits, currentStreaks, numProjects }: Props) {
+export default function Stats({
+  codeCommits,
+  currentStreaks,
+  numProjects,
+}: Props) {
   const [profileStats, setProfileStats] = useState<Stats[]>(stats);
   const { users } = useSocket();
 
@@ -31,7 +36,13 @@ export default function Stats({ codeCommits, currentStreaks, numProjects }: Prop
   }, [users, codeCommits, currentStreaks, numProjects]);
 
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+      }}
+    >
       <div className="container mx-auto mb-4">
         <div className="mx-auto flex max-w-[80vh] flex-wrap gap-6 xl:max-w-none">
           {profileStats.map((stat, index) => {
@@ -60,6 +71,6 @@ export default function Stats({ codeCommits, currentStreaks, numProjects }: Prop
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

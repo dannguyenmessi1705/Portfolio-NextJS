@@ -10,7 +10,7 @@ export default function Photo() {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
+          transition: { delay: 0.2, duration: 0.4, ease: "easeInOut" },
         }}
       >
         <div className="absolute left-0 right-0 m-auto h-[190px] w-[190px] overflow-hidden rounded-full mix-blend-lighten xl:h-[398px] xl:w-[398px]">

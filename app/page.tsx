@@ -47,9 +47,7 @@ export default async function page() {
         </div>
       </div>
 
-      <Suspense
-        fallback={<Stats codeCommits={0} currentStreaks={0} numProjects={0} />}
-      >
+      <Suspense>
         <StatsDisplay />
       </Suspense>
     </section>
