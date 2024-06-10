@@ -104,7 +104,7 @@ export default function ProjectCreateForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-3 rounded-xl bg-primary-900 p-8"
+        className="flex flex-col gap-3 rounded-xl bg-primary-900 p-4 md:p-8"
       >
         <div className="mb-4 grid grid-cols-1 gap-6 md:grid-cols-2">
           <FormField
@@ -204,7 +204,7 @@ export default function ProjectCreateForm() {
               return (
                 <FormItem className="relative mb-4">
                   <FormControl className="w-full">
-                    <div className="flex gap-6">
+                    <div className="flex flex-row gap-4 sm:gap-6">
                       <Button
                         type="button"
                         onClick={() => fileInputRef.current!.click()}
@@ -237,6 +237,7 @@ export default function ProjectCreateForm() {
                                 alt="preview"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               />
                             </DialogContent>
                           </Dialog>
@@ -270,7 +271,9 @@ export default function ProjectCreateForm() {
           }}
         />
 
-        <SubmitButton labelPending="Creating..." pending={isPending}>Create Project</SubmitButton>
+        <SubmitButton labelPending="Creating..." pending={isPending}>
+          Create Project
+        </SubmitButton>
       </form>
     </Form>
   );
