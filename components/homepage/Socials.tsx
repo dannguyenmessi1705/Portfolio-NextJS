@@ -30,6 +30,7 @@ export default function Socials() {
             key={index}
             href={social.link}
             target="_blank"
+            prefetch={false}
             className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-700 text-xl text-accent-600 hover:bg-accent-600 hover:text-primary-50 hover:transition-all hover:duration-500"
           >
             {social.icon}

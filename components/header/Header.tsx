@@ -8,13 +8,13 @@ export default function Header() {
   return (
     <header className="py-6 text-primary-50 xl:py-9">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <h1 className="text-4xl font-semibold">ZDiDane</h1>
         </Link>
 
         <div className="hidden items-center gap-8 xl:flex">
           <Navigation />
-          <Link href="/contact">
+          <Link href="/contact" prefetch={false}>
             <Button>Contact me</Button>
           </Link>
         </div>

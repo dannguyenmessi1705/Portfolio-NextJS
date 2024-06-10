@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function BlogCard({ blog }: { blog: Blog }) {
   return (
     <div className="rounded-xl p-4 shadow">
-      <Link href={`/blogs/${blog.id}`}>
+      <Link href={`/blogs/${blog.id}`} prefetch={false}>
         <div className="relative h-4/6 w-full">
           <Image
             src={blog.coverImage}

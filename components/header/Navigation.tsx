@@ -36,6 +36,7 @@ export default function Navigation() {
           <Link
             key={index}
             href={link.path}
+            prefetch={false}
             className={`${
               (link.path.length === 1 && pathName === link.path) ||
               (link.path.length !== 1 && pathName.startsWith(link.path))
