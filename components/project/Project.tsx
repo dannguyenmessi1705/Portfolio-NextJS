@@ -18,7 +18,12 @@ export default function Project({
   const [project, setProject] = useState<Project>(projects[0]);
   if (!project) return <NotFound message="There are no projects here" />;
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
       className="flex min-h-[70vh] flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
@@ -52,6 +57,6 @@ export default function Project({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

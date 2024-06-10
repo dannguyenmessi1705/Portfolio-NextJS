@@ -10,7 +10,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           <Image
             src={blog.coverImage}
             alt={blog.title}
-            priority
+            loading="lazy"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={80}

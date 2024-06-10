@@ -9,8 +9,8 @@ type Props = {
 export default function PageTransition({ children }: Props) {
   const pathName = usePathname();
   return (
-    <AnimatePresence>
-      <div key={pathName}>
+    <AnimatePresence mode="wait">
+      <motion.div key={pathName}>
         <motion.div
           initial={{ opacity: 1 }}
           animate={{
@@ -20,7 +20,7 @@ export default function PageTransition({ children }: Props) {
           className="pointer-events-none fixed top-0 h-screen w-screen bg-primary-950"
         />
         {children}
-      </div>
+      </motion.div>
     </AnimatePresence>
   );
 }

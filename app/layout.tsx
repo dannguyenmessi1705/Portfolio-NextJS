@@ -32,7 +32,7 @@ export default function RootLayout({
         <SocketProvider>
           <Header />
           <main className="h-full w-full">
-            {/* <CoverTransition /> */}
+            <CoverTransition />
             <PageTransition>
               {children}
               <SpeedInsights />

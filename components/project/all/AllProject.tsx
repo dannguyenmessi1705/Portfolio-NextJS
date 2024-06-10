@@ -27,7 +27,7 @@ export default function AllProject({ projects }: { projects: ProjectType[] }) {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { duration: 0.4, delay: 1, ease: "easeIn" },
+        transition: { duration: 0.3, delay: 0.5, ease: "easeIn" },
       }}
       className="h-full w-full"
     >
