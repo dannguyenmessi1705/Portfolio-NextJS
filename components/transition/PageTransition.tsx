@@ -15,7 +15,7 @@ export default function PageTransition({ children }: Props) {
           initial={{ opacity: 1 }}
           animate={{
             opacity: 0,
-            transition: { delay: 1, duration: 0.3, ease: "easeInOut" },
+            transition: { delay: 0.5, duration: 0.3, ease: "easeInOut" },
           }}
           className="pointer-events-none fixed top-0 h-screen w-screen bg-primary-950"
         />
