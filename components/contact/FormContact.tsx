@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
@@ -57,7 +58,12 @@ export default function FormContact() {
 
   return (
     <Form {...form}>
-      <form
+      <motion.form
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+        }}
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-3 rounded-xl bg-primary-900 p-8"
       >
@@ -160,7 +166,7 @@ export default function FormContact() {
         <SubmitButton pending={isPending} labelPending="Sending...">
           Send message
         </SubmitButton>
-      </form>
+      </motion.form>
     </Form>
   );
 }
