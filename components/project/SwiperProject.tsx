@@ -32,6 +32,7 @@ export default function SwiperProject({
               <div className="relative aspect-square h-full w-full">
                 <Image
                   src={project.image ? `${project.image}` : noImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   fill
                   className="object-cover"
                   alt={project.title}
