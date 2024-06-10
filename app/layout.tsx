@@ -33,10 +33,10 @@ export default function RootLayout({
           <Header />
           <main className="h-full w-full">
             {/* <CoverTransition /> */}
-            {/* <PageTransition> */}
+            <PageTransition>
               {children}
               <SpeedInsights />
-            {/* </PageTransition> */}
+            </PageTransition>
           </main>
         </SocketProvider>
       </body>

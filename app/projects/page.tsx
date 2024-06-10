@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { auth } from "@/lib/auth";
 import ProjectListCard from "@/components/project/ProjectListCard";
 import { Suspense } from "react";
-import ProjectSekeleton from "@/components/project/ProjectSekeleton";
+import ProjectSkeleton from "@/components/project/ProjectSkeleton";
 
 export const metadata: Metadata = {
   title: "Project",
@@ -17,7 +17,7 @@ async function Page() {
   const session = await auth();
   return (
     <>
-      <Suspense fallback={<ProjectSekeleton />}>
+      <Suspense fallback={<ProjectSkeleton />}>
         <ProjectListCard session={session} />
       </Suspense>
     </>

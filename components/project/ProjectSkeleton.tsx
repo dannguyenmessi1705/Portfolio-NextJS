@@ -4,12 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ProjectSekeleton() {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
-      }}
+    <section
       className="flex min-h-[70vh] flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
@@ -31,6 +26,6 @@ export default function ProjectSekeleton() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
