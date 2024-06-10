@@ -1,3 +1,6 @@
+"use client";
+import { slideInFromRight } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
 import { type ReactNode } from "react";
 type Info = {
@@ -24,7 +27,15 @@ const info: Info[] = [
 ];
 export default function InfoContact() {
   return (
-    <ul className="flex flex-col gap-10">
+    <motion.ul
+      initial={{ opacity: 0, x: 100 }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+      }}
+      className="flex flex-col gap-10"
+    >
       {info.map((item, index) => {
         return (
           <li key={index} className="flex items-center gap-6">
@@ -38,6 +49,6 @@ export default function InfoContact() {
           </li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }
