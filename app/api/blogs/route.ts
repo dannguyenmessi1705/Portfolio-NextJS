@@ -4,6 +4,7 @@ import prisma from "@/lib/prisma";
 
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page") ?? "0";
+  const q = req.nextUrl.searchParams.get("q") ?? "";
   let blogs = null;
   if (page !== "all") {
     blogs = await prisma.blog.findMany({
@@ -13,11 +14,43 @@ export async function GET(req: NextRequest) {
       skip: parseInt(page) * PER_PAGE,
       take: PER_PAGE,
       orderBy: { date: "desc" },
+      where: {
+        OR: [
+          {
+            title: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+          {
+            content: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
     });
   } else
     blogs = await prisma.blog.findMany({
       include: {
         admin: true,
+      },
+      where: {
+        OR: [
+          {
+            title: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+          {
+            content: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+        ],
       },
       orderBy: { date: "desc" },
     });

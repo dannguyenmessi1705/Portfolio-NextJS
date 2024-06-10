@@ -4,6 +4,14 @@ import matter from "gray-matter";
 import Blog from "@/components/blog/Blog";
 import { Metadata } from "next";
 import { getBlogsAction } from "@/lib/serverAction";
+import noImage from "@/public/assets/no-image.svg";
+import Image from "next/image";
+import SearchBar from "@/components/blog/SearchBar";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
+import { Suspense } from "react";
+import BlogsList from "@/components/blog/BlogsList";
+import BlogSkeleton from "@/components/blog/BlogSkeleton";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -13,28 +21,20 @@ export const metadata: Metadata = {
   },
 };
 
-async function getBlogs(page: string = "0") {
-  // const files = fs.readdirSync(
-  //   path.join(process.cwd(), "public", "assets", "blog", "posts"),
-  // );
-  // const posts = files.map((filename) => {
-  //   // slug
-  //   const slug = filename.replace(".md", "");
-  //   const markdownWithMeta = fs.readFileSync(
-  //     path.join(process.cwd(), "public", "assets", "blog", "posts", filename),
-  //     "utf-8",
-  //   );
-  //   const { data: frontmatter } = matter(markdownWithMeta);
-  //   return { slug, frontmatter };
-  // });
-  // return posts;
-  const blogs = await getBlogsAction(page);
-  return blogs;
-}
-
 async function Page() {
-  const blogs = await getBlogs();
-  return <Blog blogs={blogs} />;
+  return (
+    <section className="min-h-[70vh] py-2">
+      <div className="container mx-auto p-4">
+        <SearchBar />
+        <Suspense fallback={<BlogSkeleton />}>
+          <BlogsList />
+          <ButtonScrollTop />
+        </Suspense>
+      </div>
+    </section>
+  );
+
+  // <Blog blogs={blogs} />;
 }
 
 export default Page;

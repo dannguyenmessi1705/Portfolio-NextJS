@@ -197,3 +197,16 @@ export async function getBlogAction(blogId: string) {
     return null;
   }
 }
+
+export async function searchBlogsAction(page: string = "0", q: string) {
+  try {
+    const result = await axios.get(
+      `${process.env.NEXT_BACKEND_URL}/api/blogs?q=${q}&page=${page}`,
+    );
+    const res = await result.data;
+    if (!res) throw new Error("Failed to search blogs");
+    return res;
+  } catch (error) {
+    return [];
+  }
+}
