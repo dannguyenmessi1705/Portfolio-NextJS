@@ -45,7 +45,7 @@ export default function NavigationMobile() {
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         <div className="mb-28 mt-28 text-center text-2xl">
-          <Link href="/" prefetch={false}>
+          <Link href="/" prefetch={true}>
             <SheetClose>
               <h1 className="text-4xl font-semibold">ZDiDane</h1>
             </SheetClose>
@@ -58,7 +58,7 @@ export default function NavigationMobile() {
               <Link
                 key={index}
                 href={link.path}
-                prefetch={false}
+                prefetch={true}
                 className={`${
                   (link.path.length === 1 && pathName === link.path) ||
                   (link.path.length !== 1 && pathName.startsWith(link.path))

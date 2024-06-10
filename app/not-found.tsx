@@ -20,7 +20,7 @@ function NotFound({
           <h1 className="text-center text-3xl font-semibold">{message}</h1>
           <Link
             href="/"
-            prefetch={false}
+            prefetch={true}
             className="flex items-center gap-6 rounded-sm border border-accent-800 bg-accent-700 px-10 py-4 text-lg font-medium text-primary-950 transition-all duration-300 hover:border-primary-900 hover:bg-accent-600"
           >
             Go back home

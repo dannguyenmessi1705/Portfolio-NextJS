@@ -88,14 +88,14 @@ export default async function page({ params }: any) {
     date,
     adminName,
     adminAvatar,
-    contentHtml
+    contentHtml,
   } = await getBlog(blogId);
 
   return (
     <div className="container mx-auto">
       <Link
         href="/blogs"
-        prefetch={false}
+        prefetch={true}
         className="inline-block cursor-pointer rounded-md border-none bg-accent-700 px-4 py-2 text-base text-primary-50 no-underline"
       >
         Go Back

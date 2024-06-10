@@ -32,7 +32,7 @@ export default function LinkProject({
   return (
     <div className="xl:mb-none mb-6 flex items-center gap-4">
       {demo && (
-        <Link href={demo} target="_blank" prefetch={false}>
+        <Link href={demo} target="_blank" prefetch={true}>
           <TooltipProvider delayDuration={100}>
             <Tooltip>
               <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
@@ -46,7 +46,7 @@ export default function LinkProject({
         </Link>
       )}
 
-      <Link href={source!} target="_blank" prefetch={false}>
+      <Link href={source!} target="_blank" prefetch={true}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">
@@ -59,7 +59,7 @@ export default function LinkProject({
         </TooltipProvider>
       </Link>
 
-      <Link href="projects/all" prefetch={false}>
+      <Link href="projects/all" prefetch={true}>
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-800">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-import noImage from "@/public/assets/no-image.svg"
+import noImage from "@/public/assets/no-image.svg";
 
 type Props = {
   title: string;
@@ -38,7 +38,7 @@ export default function ProjectCard({
             <Link
               href={demo}
               target="_blank"
-              prefetch={false}
+              prefetch={true}
               className="flex items-center space-x-3 bg-primary-900 px-4 py-2 text-lg"
             >
               <BsArrowUpRight />
@@ -48,7 +48,7 @@ export default function ProjectCard({
           <Link
             href={source}
             target="_blank"
-            prefetch={false}
+            prefetch={true}
             className="flex items-center space-x-3 bg-primary-900 px-4 py-2 text-lg"
           >
             <BsGithub />

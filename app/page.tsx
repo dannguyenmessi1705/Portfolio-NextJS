@@ -28,7 +28,7 @@ export default async function page() {
               <Link
                 href="https://i2cyjyqqpqfhs8o3.public.blob.vercel-storage.com/cv-pAmCdK2AOjapK1fV04xXLk6kb07ztD.pdf"
                 target="_blank"
-                prefetch={false}
+                prefetch={true}
                 className="flex items-center justify-center gap-2 rounded-md border border-accent-700 bg-accent-600 px-4 py-2 uppercase text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-accent-800"
               >
                 <span>Download my CV</span>
