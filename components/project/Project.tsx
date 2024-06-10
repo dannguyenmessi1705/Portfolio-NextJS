@@ -22,7 +22,7 @@ export default function Project({
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
       }}
       className="flex min-h-[70vh] flex-col justify-center py-12 xl:px-0"
     >
