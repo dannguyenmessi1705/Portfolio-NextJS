@@ -19,10 +19,10 @@ export default function Photo() {
             alt="avatar"
             placeholder="blur"
             fill
-            priority
             quality={80}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="pointer-events-none object-contain"
+            loading="lazy"
           />
         </div>
 
