@@ -83,7 +83,7 @@ export default async function page({ params }: any) {
           quality={80}
           crossOrigin="use-credentials"
         />
-        <div className="" data-color-mode="light">
+        <div className="">
           <MarkdownDisplay value={content} />
         </div>
         {/* <div className="prose prose-invert mx-auto w-3/4 lg:prose-xl">

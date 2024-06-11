@@ -59,3 +59,9 @@ body .w-md-editor-toolbar li > button:focus,
 body .w-md-editor-toolbar li.active > button {
     @apply text-accent-600
 }
+body .wmde-markdown {
+    @apply bg-transparent
+}
+body .wmde-markdown pre {
+    @apply bg-primary-900
+}
