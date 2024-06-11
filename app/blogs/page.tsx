@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import SearchBar from "@/components/blog/SearchBar";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
@@ -7,6 +6,7 @@ import BlogsList from "@/components/blog/BlogsList";
 import BlogSkeleton from "@/components/blog/BlogSkeleton";
 import CreateBlogButton from "@/components/blog/CreateBlogButton";
 import { auth } from "@/lib/auth";
+import LoadMoreBlog from "@/components/blog/LoadMoreBlog";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -30,6 +30,7 @@ async function Page() {
           session.user.id === process.env.NEXT_PUBLIC_ADMIN_ID && (
             <CreateBlogButton />
           )}
+        <LoadMoreBlog />
       </div>
     </section>
   );

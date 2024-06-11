@@ -40,7 +40,7 @@ export default function ButtonScrollTop({
 
   return (
     <motion.button
-      className={`fixed ${bottomTop} right-0 m-10 rounded-full bg-accent-600 p-4 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700`}
+      className={`fixed ${bottomTop} right-0 m-10 rounded-full bg-accent-600 p-4 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700 z-50`}
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}
