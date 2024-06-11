@@ -7,7 +7,7 @@ import { getBlogAction, getBlogsAction } from "@/lib/serverAction";
 import { type Blog } from "@/lib/data";
 import MarkdownDisplay from "@/components/blog/MarkdownDisplay";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
-import { FaRegClock } from "react-icons/fa";
+import { ImArrowLeft } from "react-icons/im";
 
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
@@ -61,7 +61,6 @@ export default async function page({ params }: any) {
     adminAvatar,
     contentHtml,
   } = await getBlog(blogId);
-  console.log(title);
 
   return (
     <section className="container mx-auto my-8 rounded-md p-4 shadow-md">
@@ -86,8 +85,9 @@ export default async function page({ params }: any) {
         <Link
           href="/blogs"
           prefetch={true}
-          className="inline-block cursor-pointer rounded-md border-none bg-accent-700 px-4 py-2 text-base text-primary-50 no-underline"
+          className="flex cursor-pointer items-center justify-center rounded-md border-none bg-accent-600 px-4 py-2 text-base text-white no-underline hover:bg-accent-700"
         >
+          <ImArrowLeft className="mr-2" />
           Go Back
         </Link>
       </div>
@@ -99,7 +99,7 @@ export default async function page({ params }: any) {
           width={700}
           height={400}
           quality={80}
-          className="rounded-md h-auto w-auto"
+          className="h-auto w-auto rounded-md"
         />
       </div>
 
@@ -111,34 +111,3 @@ export default async function page({ params }: any) {
     </section>
   );
 }
-
-/*
- <section className="container mx-auto my-8 p-4 rounded-md shadow-md">
-      <Link
-        href="/blogs"
-        prefetch={true}
-        className="inline-block cursor-pointer rounded-md border-none bg-accent-700 px-4 py-2 text-base text-primary-50 no-underline"
-      >
-        Go Back
-      </Link>
-      <div className="rounded-xl shadow">
-        <h1 className="my-3">{title}</h1>
-        <div className="mt-5 bg-primary-900 px-2 py-1">
-          Posted on {date.split("T")[0]}
-        </div>
-        <Image
-          src={coverImage}
-          alt={title}
-          className="mx-auto w-3/4"
-          width={1200}
-          height={300}
-          quality={80}
-          crossOrigin="use-credentials"
-        />
-        <div className="">
-          <MarkdownDisplay value={content} />
-        </div>
-      </div>
-      <ButtonScrollTop />
-    </section>
- */
