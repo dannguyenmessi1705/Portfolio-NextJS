@@ -73,7 +73,8 @@ export default async function page({ params }: any) {
             alt="Author"
             width={40}
             height={40}
-            className="rounded-full"
+            quality={80}
+            className="h-auto w-auto rounded-full"
           />
           <div className="flex flex-col justify-between">
             <p className="text-sm font-semibold">{adminName}</p>
@@ -97,7 +98,8 @@ export default async function page({ params }: any) {
           alt={title}
           width={700}
           height={400}
-          className="rounded-md"
+          quality={80}
+          className="rounded-md h-auto w-auto"
         />
       </div>
 
