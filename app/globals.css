@@ -65,3 +65,6 @@ body .wmde-markdown {
 body .wmde-markdown pre {
     @apply bg-primary-900
 }
+body .wmde-markdown p, .wmde-markdown blockquote, .wmde-markdown ul, .wmde-markdown ol, .wmde-markdown dl, .wmde-markdown table, .wmde-markdown pre, .wmde-markdown details {
+    @apply overflow-x-auto
+}
