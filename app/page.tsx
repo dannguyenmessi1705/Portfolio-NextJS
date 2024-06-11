@@ -3,7 +3,6 @@ import Socials from "@/components/homepage/Socials";
 import Photo from "@/components/homepage/Photo";
 import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
-import Stats from "@/components/homepage/Stats";
 import Link from "next/link";
 
 export default async function page() {

@@ -8,6 +8,7 @@ import { put } from "@vercel/blob";
 import { type Category, type Mail } from "./data";
 import sendEmail from "./sengrid";
 import { type MailDataRequired } from "@sendgrid/mail";
+import { PER_PAGE } from "./utils";
 
 export async function signInAction() {
   return signIn("github", { redirectTo: "/" });
@@ -126,6 +127,49 @@ export async function getProjectsAction(page: string = "0") {
   }
 }
 
+export async function getProjectsActionNoRoute(page: string = "0") {
+  let projects = [];
+  if (page !== "all") {
+    projects = await prisma.project.findMany({
+      skip: parseInt(page) * PER_PAGE,
+      take: PER_PAGE,
+      include: {
+        category: true,
+        languages: {
+          include: { language: true },
+        },
+      },
+      orderBy: { date: "desc" },
+    });
+  } else
+    projects = await prisma.project.findMany({
+      include: {
+        category: true,
+        languages: {
+          include: { language: true },
+        },
+      },
+      orderBy: { date: "desc" },
+    });
+  if (!projects) return [];
+  const transformedProjects = projects.map((project) => {
+    return {
+      id: project.id as string,
+      title: project.title as string,
+      description: project.description as string,
+      image: project.image as string | "",
+      demo: project.demo as string | null,
+      source: project.source as string,
+      date: project.date?.toString() as string,
+      category: project.category?.name as string,
+      languages: project.languages.map(
+        (lang) => lang.language.name,
+      ) as string[],
+    };
+  });
+  return transformedProjects;
+}
+
 export async function createBlogAction(data: FormData) {
   const session = await auth();
   if (!session || session.user?.id !== process.env.NEXT_PUBLIC_ADMIN_ID) {
@@ -155,7 +199,7 @@ export async function createBlogAction(data: FormData) {
       title: title,
       excerpt: excerpt,
       content: content,
-      coverImage: imagePath ?? '',
+      coverImage: imagePath ?? "",
       admin: {
         connect: { id: process.env.NEXT_PUBLIC_ADMIN_ID },
       },
@@ -209,4 +253,90 @@ export async function searchBlogsAction(page: string = "0", q: string) {
   } catch (error) {
     return [];
   }
+}
+
+export async function getBlogDetailNoRoute(blogId: string) {
+  const blog = await prisma.blog.findFirst({
+    include: { admin: true },
+    where: { id: blogId },
+  });
+  if (!blog) return null;
+  const transformedBlogs = {
+    id: blog?.id as string,
+    title: blog?.title as string,
+    excerpt: blog?.excerpt as string,
+    content: blog?.content as string,
+    coverImage: blog?.coverImage as string | "",
+    date: blog?.date?.toString() as string,
+    adminName: blog?.admin?.name as string,
+    adminAvatar: blog?.admin?.image as string,
+  };
+  return transformedBlogs;
+}
+
+export async function getAllBlogsNoRoute(page: string = "0", q: string = "") {
+  let blogs = null;
+  if (page !== "all") {
+    blogs = await prisma.blog.findMany({
+      include: {
+        admin: true,
+      },
+      skip: parseInt(page) * PER_PAGE,
+      take: PER_PAGE,
+      orderBy: { date: "desc" },
+      where: {
+        OR: [
+          {
+            title: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+          {
+            content: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
+    });
+  } else
+    blogs = await prisma.blog.findMany({
+      include: {
+        admin: true,
+      },
+      where: {
+        OR: [
+          {
+            title: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+          {
+            content: {
+              contains: q,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
+      orderBy: { date: "desc" },
+    });
+
+  if (!blogs) return [];
+  const transformedBlogs = blogs.map((blog) => {
+    return {
+      id: blog.id as string,
+      title: blog.title as string,
+      excerpt: blog.excerpt as string,
+      content: blog.content as string,
+      coverImage: blog.coverImage as string | "",
+      date: blog.date?.toString() as string,
+      adminName: blog.admin?.name as string,
+      adminAvatar: blog.admin?.image as string,
+    };
+  });
+  return transformedBlogs;
 }

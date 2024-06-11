@@ -1,20 +1,22 @@
-import { remark } from "remark";
-import html from "remark-html";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { getBlogAction, getBlogsAction } from "@/lib/serverAction";
+import {
+  getAllBlogsNoRoute,
+  getBlogDetailNoRoute,
+} from "@/lib/serverAction";
 import { type Blog } from "@/lib/data";
 import MarkdownDisplay from "@/components/blog/MarkdownDisplay";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
 import { ImArrowLeft } from "react-icons/im";
+import noImage from "@/public/assets/no-image.svg";
 
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
-  const { title, content } = await getBlog(blogId);
+  const { title, content } = await getBlogDetailNoRoute(blogId) as Blog;
   return {
     title,
-    description: content.length > 100 ? content.slice(0, 100) : content,
+    description: content!.length > 100 ? content!.slice(0, 100) : content,
     verification: {
       google: "y3XSeAKkSbUuPyZfcb7N9EEaI-3EotyUOgWxjjbLrjU",
     },
@@ -22,9 +24,7 @@ export async function generateMetadata({ params }: { params: any }) {
 }
 
 async function getBlog(blogId: string) {
-  const blog = (await getBlogAction(blogId)) as Blog;
-  const processedContent = await remark().use(html).process(blog.content);
-  const contentHtml = processedContent.toString();
+  const blog = await getBlogDetailNoRoute(blogId);
   return {
     id: blog?.id,
     title: blog?.title,
@@ -34,12 +34,11 @@ async function getBlog(blogId: string) {
     date: blog?.date,
     adminName: blog?.adminName,
     adminAvatar: blog?.adminAvatar,
-    contentHtml,
   };
 }
 
 export async function generateStaticParams() {
-  const blogs = (await getBlogsAction()) as Blog[];
+  const blogs = await getAllBlogsNoRoute() as Blog[];
   const params = blogs.map((blog) => {
     return {
       blogId: blog.id,
@@ -59,8 +58,7 @@ export default async function page({ params }: any) {
     date,
     adminName,
     adminAvatar,
-    contentHtml,
-  } = await getBlog(blogId);
+  } = await getBlog(blogId) as Blog;
 
   return (
     <section className="container mx-auto my-8 rounded-md p-4 shadow-md">
@@ -68,7 +66,7 @@ export default async function page({ params }: any) {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Image
-            src={adminAvatar}
+            src={adminAvatar ? adminAvatar : noImage}
             alt="Author"
             width={40}
             height={40}
@@ -78,7 +76,7 @@ export default async function page({ params }: any) {
           <div className="flex flex-col justify-between">
             <p className="text-sm font-semibold">{adminName}</p>
             <p className="text-xs text-primary-400">
-              Published in - {date.split("T")[0]}
+              Published in - {date?.toString().split("T")[0]}
             </p>
           </div>
         </div>
@@ -94,8 +92,8 @@ export default async function page({ params }: any) {
 
       <div className="mt-4 flex items-center justify-center">
         <Image
-          src={coverImage}
-          alt={title}
+          src={coverImage ? coverImage : noImage}
+          alt={title!}
           width={700}
           height={400}
           quality={80}
@@ -104,9 +102,8 @@ export default async function page({ params }: any) {
       </div>
 
       <div className="mt-4">
-        <MarkdownDisplay value={content} />
+        <MarkdownDisplay value={content!} />
       </div>
-
       <ButtonScrollTop />
     </section>
   );

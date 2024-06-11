@@ -1,13 +1,6 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Blog from "@/components/blog/Blog";
+
 import { Metadata } from "next";
-import { getBlogsAction } from "@/lib/serverAction";
-import noImage from "@/public/assets/no-image.svg";
-import Image from "next/image";
 import SearchBar from "@/components/blog/SearchBar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
 import { Suspense } from "react";
 import BlogsList from "@/components/blog/BlogsList";
