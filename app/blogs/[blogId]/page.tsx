@@ -101,7 +101,7 @@ export default async function page({ params }: any) {
         />
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4" data-color-mode="dark">
         <MarkdownDisplay value={content!} />
       </div>
       <ButtonScrollTop />
