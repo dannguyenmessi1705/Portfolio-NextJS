@@ -54,8 +54,8 @@ export default function Blog({ blogs }: { blogs: Blog[] }) {
                   alt={blog.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                   quality={75}
-                  loading="lazy"
                   className="rounded-lg object-cover"
                 />
               </div>

@@ -20,7 +20,11 @@ const ScrollToTopContainerVariants: Variants = {
   show: { opacity: 1, y: 0 },
 };
 
-export default function ButtonScrollTop() {
+export default function ButtonScrollTop({
+  bottomTop = "bottom-0",
+}: {
+  bottomTop?: string;
+}) {
   const { scrollYProgress } = useScroll();
   const controls = useAnimationControls();
 
@@ -36,7 +40,7 @@ export default function ButtonScrollTop() {
 
   return (
     <motion.button
-      className="fixed bottom-0 right-0 m-10 rounded-full bg-accent-600 p-4 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700 "
+      className={`fixed ${bottomTop} right-0 m-10 rounded-full bg-accent-600 p-4 text-[24px] text-primary-950 transition-all duration-300 hover:bg-accent-700`}
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}

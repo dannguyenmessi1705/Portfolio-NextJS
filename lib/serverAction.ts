@@ -155,7 +155,7 @@ export async function createBlogAction(data: FormData) {
       title: title,
       excerpt: excerpt,
       content: content,
-      coverImage: imagePath ?? null,
+      coverImage: imagePath ?? '',
       admin: {
         connect: { id: process.env.NEXT_PUBLIC_ADMIN_ID },
       },

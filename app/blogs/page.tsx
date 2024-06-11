@@ -12,6 +12,8 @@ import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
 import { Suspense } from "react";
 import BlogsList from "@/components/blog/BlogsList";
 import BlogSkeleton from "@/components/blog/BlogSkeleton";
+import CreateBlogButton from "@/components/blog/CreateBlogButton";
+import { auth } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -22,14 +24,19 @@ export const metadata: Metadata = {
 };
 
 async function Page() {
+  const session = await auth();
   return (
     <section className="min-h-[70vh] py-2">
       <div className="container mx-auto p-4">
         <SearchBar />
         <Suspense fallback={<BlogSkeleton />}>
           <BlogsList />
-          <ButtonScrollTop />
+          <ButtonScrollTop bottomTop="bottom-20" />
         </Suspense>
+        {session?.user &&
+          session.user.id === process.env.NEXT_PUBLIC_ADMIN_ID && (
+            <CreateBlogButton />
+          )}
       </div>
     </section>
   );
