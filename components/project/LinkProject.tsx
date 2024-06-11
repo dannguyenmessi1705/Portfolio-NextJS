@@ -30,7 +30,7 @@ export default function LinkProject({
   session,
 }: LinkProjectProps) {
   return (
-    <div className="xl:mb-none mb-6 flex items-center gap-4">
+    <div className="xl:mb-none mb-6 mt-auto flex items-center gap-4">
       {demo && (
         <Link href={demo} target="_blank" prefetch={true}>
           <TooltipProvider delayDuration={100}>

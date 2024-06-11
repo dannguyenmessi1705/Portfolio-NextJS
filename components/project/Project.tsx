@@ -44,7 +44,7 @@ export default function Project({
 
               <Languages project={project} />
             </div>
-            <div className="mb-2 border border-primary-800 xl:mb-0"></div>
+            <div className="mb-2 mt-auto border border-primary-800 xl:mb-0"></div>
             <LinkProject
               demo={project.demo}
               source={project.source}
