@@ -7,6 +7,7 @@ import { getBlogAction, getBlogsAction } from "@/lib/serverAction";
 import { type Blog } from "@/lib/data";
 import MarkdownDisplay from "@/components/blog/MarkdownDisplay";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
+import { FaRegClock } from "react-icons/fa";
 
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
@@ -63,7 +64,54 @@ export default async function page({ params }: any) {
   console.log(title);
 
   return (
-    <div className="container mx-auto">
+    <section className="container mx-auto my-8 rounded-md p-4 shadow-md">
+      <h1 className="mb-6 text-4xl font-extrabold text-white">{title}</h1>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <Image
+            src={adminAvatar}
+            alt="Author"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <div className="flex flex-col justify-between">
+            <p className="text-sm font-semibold">{adminName}</p>
+            <p className="text-xs text-primary-400">
+              Published in - {date.split("T")[0]}
+            </p>
+          </div>
+        </div>
+        <Link
+          href="/blogs"
+          prefetch={true}
+          className="inline-block cursor-pointer rounded-md border-none bg-accent-700 px-4 py-2 text-base text-primary-50 no-underline"
+        >
+          Go Back
+        </Link>
+      </div>
+
+      <div className="mt-4 flex items-center justify-center">
+        <Image
+          src={coverImage}
+          alt={title}
+          width={700}
+          height={400}
+          className="rounded-md"
+        />
+      </div>
+
+      <div className="mt-4">
+        <MarkdownDisplay value={content} />
+      </div>
+
+      <ButtonScrollTop />
+    </section>
+  );
+}
+
+/*
+ <section className="container mx-auto my-8 p-4 rounded-md shadow-md">
       <Link
         href="/blogs"
         prefetch={true}
@@ -73,7 +121,9 @@ export default async function page({ params }: any) {
       </Link>
       <div className="rounded-xl shadow">
         <h1 className="my-3">{title}</h1>
-        <div className="mt-5 bg-primary-900 px-2 py-1">Posted on {date}</div>
+        <div className="mt-5 bg-primary-900 px-2 py-1">
+          Posted on {date.split("T")[0]}
+        </div>
         <Image
           src={coverImage}
           alt={title}
@@ -86,11 +136,7 @@ export default async function page({ params }: any) {
         <div className="">
           <MarkdownDisplay value={content} />
         </div>
-        {/* <div className="prose prose-invert mx-auto w-3/4 lg:prose-xl">
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-        </div> */}
       </div>
       <ButtonScrollTop />
-    </div>
-  );
-}
+    </section>
+ */
