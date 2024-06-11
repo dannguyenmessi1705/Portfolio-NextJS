@@ -73,7 +73,7 @@ export default function CreateBlogForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-3 rounded-xl bg-primary-900 p-8"
+        className="flex flex-col gap-3 rounded-xl bg-primary-900 p-8 min-h-[70vh]"
       >
         <div className="mb-4 grid grid-cols-1 gap-6 md:grid-cols-2">
           <FormField

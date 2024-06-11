@@ -33,8 +33,8 @@ export default function MarkdownEdit({ value, setValue, onChangeForm }: Props) {
           onChangeForm(newValue);
         }}
         fullscreen={false}
+        height={250}
         preview="edit"
-        className=""
       />
     </div>
   );
