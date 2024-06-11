@@ -10,14 +10,14 @@ import spinner from "@/public/assets/spinner.svg";
 
 let page: number = 1;
 
-export default function LoadMoreBlog() {
+export default function LoadMoreBlog({ query }: { query: string }) {
   const [ref, inView] = useInView();
   const [blogs, setBlogs] = useState<Blog[] | []>([]);
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     if (inView) {
-      getAllBlogsNoRoute(page.toString()).then((res) => {
+      getAllBlogsNoRoute(page.toString(), query).then((res) => {
         if (res.length === 0) {
           setHasMore(false);
         } else {
@@ -26,7 +26,7 @@ export default function LoadMoreBlog() {
         }
       });
     }
-  }, [inView, blogs]);
+  }, [inView, blogs, query]);
 
   return (
     <>

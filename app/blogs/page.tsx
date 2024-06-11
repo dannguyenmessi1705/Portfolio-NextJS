@@ -16,21 +16,22 @@ export const metadata: Metadata = {
   },
 };
 
-async function Page() {
+async function Page({ searchParams }: { searchParams: any }) {
+  const query = searchParams?.q ?? "";
   const session = await auth();
   return (
     <section className="min-h-[70vh] py-2">
       <div className="container mx-auto p-4">
         <SearchBar />
         <Suspense fallback={<BlogSkeleton />}>
-          <BlogsList />
+          <BlogsList query={query} />
           <ButtonScrollTop bottomTop="bottom-20" />
         </Suspense>
         {session?.user &&
           session.user.id === process.env.NEXT_PUBLIC_ADMIN_ID && (
             <CreateBlogButton />
           )}
-        <LoadMoreBlog />
+        <LoadMoreBlog query={query}/>
       </div>
     </section>
   );

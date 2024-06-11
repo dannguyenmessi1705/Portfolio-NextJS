@@ -15,7 +15,7 @@ export default function Blog({ blogs }: { blogs: Blog[] }) {
       className="space-y-8"
     >
       <ul>
-        {blogs ? (
+        {blogs.length > 0 ? (
           blogs.map((blog) => <BlogRender key={blog.id} blog={blog} />)
         ) : (
           <NotFound message="There are no blogs here" />
