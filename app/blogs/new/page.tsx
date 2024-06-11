@@ -1,5 +1,6 @@
 import CreateBlogPage from "@/components/blog/new/CreateBlogPage";
 import { Metadata } from "next";
+import { auth } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "New Blog",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function page() {
-  return <CreateBlogPage />;
+export default async function page() {
+  const session = await auth();
+  return <CreateBlogPage session={session} />;
 }

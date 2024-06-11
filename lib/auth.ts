@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthConfig } from "next-auth";
 import Github from "next-auth/providers/github";
 import prisma from "./prisma";
+import { NextResponse } from "next/server";
 
 const authConfig: NextAuthConfig = {
   providers: [
