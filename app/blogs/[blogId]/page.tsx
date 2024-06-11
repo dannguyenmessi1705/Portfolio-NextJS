@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import {
-  getAllBlogsNoRoute,
-  getBlogDetailNoRoute,
-} from "@/lib/serverAction";
+import { getAllBlogsNoRoute, getBlogDetailNoRoute } from "@/lib/serverAction";
 import { type Blog } from "@/lib/data";
 import MarkdownDisplay from "@/components/blog/MarkdownDisplay";
 import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
@@ -13,7 +10,7 @@ import noImage from "@/public/assets/no-image.svg";
 
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
-  const { title, content } = await getBlogDetailNoRoute(blogId) as Blog;
+  const { title, content } = (await getBlogDetailNoRoute(blogId)) as Blog;
   return {
     title,
     description: content!.length > 100 ? content!.slice(0, 100) : content,
@@ -38,7 +35,7 @@ async function getBlog(blogId: string) {
 }
 
 export async function generateStaticParams() {
-  const blogs = await getAllBlogsNoRoute() as Blog[];
+  const blogs = (await getAllBlogsNoRoute()) as Blog[];
   const params = blogs.map((blog) => {
     return {
       blogId: blog.id,
@@ -58,7 +55,7 @@ export default async function page({ params }: any) {
     date,
     adminName,
     adminAvatar,
-  } = await getBlog(blogId) as Blog;
+  } = (await getBlog(blogId)) as Blog;
 
   return (
     <section className="container mx-auto my-8 rounded-md p-4 shadow-md">
@@ -76,7 +73,10 @@ export default async function page({ params }: any) {
           <div className="flex flex-col justify-between">
             <p className="text-sm font-semibold">{adminName}</p>
             <p className="text-xs text-primary-400">
-              Published in - {date?.toString().split("T")[0]}
+              Published in -{" "}
+              {(Date.now() - new Date(date).getTime()) / 86400000 > 1
+                ? `${Math.floor((Date.now() - new Date(date).getTime()) / 86400000)} days ago`
+                : "Today"}
             </p>
           </div>
         </div>
