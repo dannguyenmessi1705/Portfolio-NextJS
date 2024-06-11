@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import Link from "next/link";
@@ -38,24 +35,6 @@ async function getBlog(blogId: string) {
     adminAvatar: blog?.adminAvatar,
     contentHtml,
   };
-
-  // // read markdown file
-  // const markdownWithMeta = fs.readFileSync(
-  //   path.join(
-  //     process.cwd(),
-  //     "public",
-  //     "assets",
-  //     "blog",
-  //     "posts",
-  //     `${blogId}.md`,
-  //   ),
-  //   "utf-8",
-  // );
-  // // convert markdown to html
-  // const { data: frontmatter, content } = matter(markdownWithMeta);
-  // const processedContent = await remark().use(html).process(content);
-  // const contentHtml = processedContent.toString();
-  // return { frontmatter, content, contentHtml };
 }
 
 export async function generateStaticParams() {
@@ -66,15 +45,6 @@ export async function generateStaticParams() {
     };
   });
   return params;
-  // const files = fs.readdirSync(
-  //   path.join(process.cwd(), "public", "assets", "blog", "posts"),
-  // );
-  // const params = files.map((filename) => {
-  //   return {
-  //     blogId: filename.replace(".md", ""),
-  //   };
-  // });
-  // return params;
 }
 
 export default async function page({ params }: any) {
@@ -90,6 +60,7 @@ export default async function page({ params }: any) {
     adminAvatar,
     contentHtml,
   } = await getBlog(blogId);
+  console.log(title);
 
   return (
     <div className="container mx-auto">

@@ -2,10 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { PER_PAGE, getRandomUUID } from "@/lib/utils";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { blogId: string } },
+) {
   const blog = await prisma.blog.findFirst({
     include: {
       admin: true,
+    },
+    where: {
+      id: params.blogId,
     },
   });
   const transformedBlogs = {
