@@ -18,7 +18,7 @@ export default async function page() {
             </h1>
             <p className="mb-6 max-w-[500px] text-primary-200">
               <span className="hidden md:inline">
-                I am a person who is always eager to learn new technologies and
+                I am a person who always eager to learn new technologies and
                 frameworks.
               </span>{" "}
               <span>

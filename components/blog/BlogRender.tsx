@@ -16,7 +16,7 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
           loading="lazy"
         />
       </div>
-      <div className="relative flex-1">
+      <div className="flex-1">
         <div className="mb-1 text-sm text-primary-400">
           {blog.adminName} -{" "}
           {(Date.now() - new Date(blog.date).getTime()) / 86400000 > 1
@@ -38,8 +38,8 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
             : blog.excerpt}
         </p>
         <p className="mb-2 text-accent-400 md:hidden">
-          {blog.excerpt.length > 56
-            ? blog.excerpt.slice(0, 56) + "..."
+          {blog.excerpt.length > 50
+            ? blog.excerpt.slice(0, 50) + "..."
             : blog.excerpt}
         </p>
         <div className="mb-2 flex items-center space-x-2">
