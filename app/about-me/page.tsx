@@ -1,7 +1,9 @@
-import Biogrophy from "@/components/about/Biogrophy";
-import Education from "@/components/about/Education";
-import Experience from "@/components/about/Experience";
-import Skillss from "@/components/about/Skills";
+import dynamic from "next/dynamic";
+const Biography = dynamic(() => import("@/components/about/Biography"));
+const Experience = dynamic(() => import("@/components/about/Experience"));
+const Education = dynamic(() => import("@/components/about/Education"));
+const Skills = dynamic(() => import("@/components/about/Skills"));
+import { biography, experience, education, skills } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Metadata } from "next";
 
@@ -33,16 +35,16 @@ function Page() {
                 value="biogrophy"
                 className="w-full text-center xl:text-left"
               >
-                <Biogrophy />
+                <Biography biography={biography} />
               </TabsContent>
               <TabsContent value="experience" className="h-full w-full">
-                <Experience />
+                <Experience experience={experience} />
               </TabsContent>
               <TabsContent value="education" className="h-full w-full">
-                <Education />
+                <Education education={education} />
               </TabsContent>
               <TabsContent value="skills" className="h-full w-full">
-                <Skillss />
+                <Skills skills={skills} />
               </TabsContent>
             </div>
           </Tabs>

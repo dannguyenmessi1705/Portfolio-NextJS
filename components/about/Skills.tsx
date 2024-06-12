@@ -1,4 +1,3 @@
-import { skills } from "@/lib/data";
 import {
   Tooltip,
   TooltipContent,
@@ -7,7 +6,7 @@ import {
 } from "../ui/tooltip";
 import { ScrollArea } from "../ui/scroll-area";
 
-export default function Skillss() {
+export default function Skills({ skills }: { skills: any }) {
   return (
     <div className="flex flex-col gap-[30px]">
       <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -18,7 +17,7 @@ export default function Skillss() {
       </div>
       <ScrollArea className="h-[350px]">
         <ul className="grid grid-cols-2 gap-4 sm:grid md:grid-cols-4 xl:gap-[30px]">
-          {skills.skills.map((sk, index) => {
+          {skills.skills.map((sk: any, index: number) => {
             return (
               <li key={index}>
                 <TooltipProvider delayDuration={100}>

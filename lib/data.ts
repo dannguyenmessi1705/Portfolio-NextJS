@@ -157,8 +157,8 @@ export type InfoBio = {
   info: Bio[];
 };
 
-export const biogrophy: InfoBio = {
-  title: "My Biogrophy",
+export const biography: InfoBio = {
+  title: "My Biography",
   description:
     "Aspiring and enthusiastic software engineer developer \
     studies Software Engineering, specializing in FullStack \

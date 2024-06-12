@@ -1,7 +1,6 @@
 import { ScrollArea } from "../ui/scroll-area";
-import { education } from "@/lib/data";
 
-export default function Education() {
+export default function Education({ education }: { education: any }) {
   return (
     <div className="flex flex-col gap-[30px] text-center xl:text-left">
       <h3 className="text-4xl font-bold">{education.title}</h3>
@@ -11,7 +10,7 @@ export default function Education() {
 
       <ScrollArea className="h-[350px]">
         <ul className="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
-          {education.educations.map((ed, index) => {
+          {education.educations.map((ed: any, index: number) => {
             return (
               <li
                 key={index}
