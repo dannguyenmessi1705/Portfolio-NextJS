@@ -38,8 +38,8 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
             : blog.excerpt}
         </p>
         <p className="mb-2 text-accent-400 md:hidden">
-          {blog.excerpt.length > 50
-            ? blog.excerpt.slice(0, 50) + "..."
+          {blog.excerpt.length > 40
+            ? blog.excerpt.slice(0, 40) + "..."
             : blog.excerpt}
         </p>
         <div className="mb-2 flex items-center space-x-2">
