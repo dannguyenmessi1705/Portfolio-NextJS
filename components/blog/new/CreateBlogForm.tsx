@@ -73,7 +73,7 @@ export default function CreateBlogForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-3 rounded-xl bg-primary-900 p-8 min-h-[70vh]"
+        className="flex min-h-[70vh] flex-col gap-3 rounded-xl bg-primary-900 p-8"
       >
         <div className="mb-4 grid grid-cols-1 gap-6 md:grid-cols-2">
           <FormField
@@ -168,11 +168,13 @@ export default function CreateBlogForm() {
             return (
               <FormItem>
                 <FormControl className="relative">
-                  <MarkdownEdit
-                    value={value}
-                    setValue={setValue}
-                    onChangeForm={field.onChange}
-                  />
+                  <div data-color-mode="dark">
+                    <MarkdownEdit
+                      value={value}
+                      setValue={setValue}
+                      onChangeForm={field.onChange}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage className="absolute" />
               </FormItem>
