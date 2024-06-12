@@ -13,14 +13,15 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
           width={40}
           height={40}
           className="rounded-full"
+          loading="lazy"
         />
       </div>
-      <div className="flex-1">
+      <div className="relative flex-1">
         <div className="mb-1 text-sm text-primary-400">
           {blog.adminName} -{" "}
           {(Date.now() - new Date(blog.date).getTime()) / 86400000 > 1
             ? `${Math.floor((Date.now() - new Date(blog.date).getTime()) / 86400000)} days ago`
-            : "Today"}
+            : "Published in Today"}
         </div>
         <h2 className="mb-2 text-xl font-bold text-white">
           <Link
@@ -31,7 +32,16 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
             {blog.title}
           </Link>
         </h2>
-        <p className="mb-2 text-accent-400">{blog.excerpt}</p>
+        <p className="mb-2 hidden text-accent-400 md:inline">
+          {blog.excerpt.length > 150
+            ? blog.excerpt.slice(0, 150) + "..."
+            : blog.excerpt}
+        </p>
+        <p className="mb-2 text-accent-400 md:hidden">
+          {blog.excerpt.length > 56
+            ? blog.excerpt.slice(0, 56) + "..."
+            : blog.excerpt}
+        </p>
         <div className="mb-2 flex items-center space-x-2">
           <span className="rounded bg-accent-600 px-2 py-1 text-white">
             #didanblog
@@ -44,7 +54,7 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
           alt={blog.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
+          loading="lazy"
           quality={75}
           className="rounded-lg object-cover"
         />

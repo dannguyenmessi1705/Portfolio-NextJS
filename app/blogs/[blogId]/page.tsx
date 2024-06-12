@@ -68,15 +68,15 @@ export default async function page({ params }: any) {
             width={40}
             height={40}
             quality={80}
+            loading="lazy"
             className="h-auto w-auto rounded-full"
           />
           <div className="flex flex-col justify-between">
             <p className="text-sm font-semibold">{adminName}</p>
             <p className="text-xs text-primary-400">
-              Published in -{" "}
               {(Date.now() - new Date(date).getTime()) / 86400000 > 1
                 ? `${Math.floor((Date.now() - new Date(date).getTime()) / 86400000)} days ago`
-                : "Today"}
+                : "Published in Today"}
             </p>
           </div>
         </div>
@@ -97,6 +97,7 @@ export default async function page({ params }: any) {
           width={700}
           height={400}
           quality={80}
+          loading="lazy"
           className="h-auto w-auto rounded-md"
         />
       </div>

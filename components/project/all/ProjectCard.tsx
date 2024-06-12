@@ -30,6 +30,7 @@ export default function ProjectCard({
             fill
             quality={80}
             alt={title}
+            loading="lazy"
             className="cursor-pointer object-cover"
           />
         </div>
