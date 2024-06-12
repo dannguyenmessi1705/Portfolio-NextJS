@@ -146,11 +146,7 @@ export type InfoBio = {
 export const biography: InfoBio = {
   title: "My Biography",
   description:
-    "Aspiring and enthusiastic software engineer developer \
-    studies Software Engineering, specializing in FullStack \
-    Development. Developed \
-    web and mobile applications as both a back-end \
-    engineer and a front-end engineer.\
+    "Aspiring and enthusiastic software engineer developer, \
     I truly desire to \
     experience and learn from real-world challenges to \
     grow myself more and to become a senior in this field.",
