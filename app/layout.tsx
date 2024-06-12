@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/header/Header";
 // import PageTransition from "@/components/transition/PageTransition";
