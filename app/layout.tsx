@@ -5,7 +5,16 @@ import Header from "@/components/header/Header";
 // import PageTransition from "@/components/transition/PageTransition";
 // import CoverTransition from "@/components/transition/CoverTransition";
 import { SocketProvider } from "@/contexts/SocketProvider";
-import { StarCanvas } from "@/components/transition/StarBackground";
+import dynamic from "next/dynamic";
+const StarCanvas = dynamic(
+  () =>
+    import("@/components/transition/StarBackground").then(
+      (mod) => mod.StarCanvas,
+    ),
+  {
+    ssr: false,
+  },
+);
 import { jetbrains } from "./font";
 
 export const metadata: Metadata = {
@@ -36,8 +45,8 @@ export default function RootLayout({
             {/* </CoverTransition> */}
 
             {/* <PageTransition> */}
-              {children}
-              <SpeedInsights />
+            {children}
+            <SpeedInsights />
             {/* </PageTransition> */}
           </main>
         </SocketProvider>

@@ -7,7 +7,7 @@ export default function Photo() {
   return (
     <div className="relative h-full w-full rounded-full">
       <div>
-        <div className="absolute left-0 right-0 top-0 bottom-0 m-auto h-[190px] w-[190px] overflow-hidden rounded-full mix-blend-lighten xl:h-[398px] xl:w-[398px]">
+        <div className="absolute left-0 right-0 top-0 bottom-0 m-auto h-[190px] w-[190px] overflow-hidden rounded-full mix-blend-lighten xl:h-[360px] xl:w-[360px]">
           <Image
             src={avatar}
             alt="avatar"
