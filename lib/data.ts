@@ -29,6 +29,11 @@ export type Stats = {
 };
 export const stats: Stats[] = [
   {
+    key: "accessings",
+    count: 0,
+    description: "Accessings",
+  },
+  {
     key: "projects",
     count: 0,
     description: "Projects Completed",
@@ -42,11 +47,6 @@ export const stats: Stats[] = [
     key: "codeCommits",
     count: 0,
     description: "Code Commits",
-  },
-  {
-    key: "accessings",
-    count: 0,
-    description: "Accessings",
   },
 ];
 

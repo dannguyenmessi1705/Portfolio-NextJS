@@ -17,10 +17,15 @@ export default async function page() {
               <span className="text-accent-600">Di Dan N.</span>
             </h1>
             <p className="mb-6 max-w-[500px] text-primary-200">
-              I am a person who is always eager to learn new technologies and
-              frameworks. Started as a backend developer, recently I am trying
-              to push my boundaries by diving into software engineer with the
-              aspiration to become a leading expert in this field.
+              <span className="hidden md:inline">
+                I am a person who is always eager to learn new technologies and
+                frameworks.
+              </span>{" "}
+              <span>
+                Started as a backend developer, I&apos;m trying to push my
+                boundaries by diving into software engineer with the aspiration
+                to become a leading expert in this field.
+              </span>
             </p>
 
             <div className="flex flex-col items-center gap-8 xl:flex-row">
