@@ -70,5 +70,8 @@
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
+  },
+  "babel": {
+    "presets": [["@babel/preset-env", { "exclude": ["@babel/plugin-transform-classes"] }]]
   }
 }

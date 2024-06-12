@@ -61,18 +61,6 @@ export type Project = {
   demo: string | null;
   source: string;
 };
-const projects: Project[] = [
-  {
-    id: "01",
-    category: "frontend",
-    title: "Project 1",
-    description: "Project 1 description",
-    languages: ["HTML 5", "CSS 3", "JavaScript"],
-    image: "/assets/projects/thumb1.png",
-    demo: "https://example.com",
-    source: "https://github.com",
-  },
-];
 
 export type Mail = {
   firstName: string;
@@ -99,14 +87,12 @@ export type Education = {
   duration?: string;
 };
 export type InfoEducation = {
-  icon: string;
   title: string;
   description: string;
   educations: Education[];
 };
 
 export const education: InfoEducation = {
-  icon: "/assets/about-me/cap.svg",
   title: "My Education",
   description:
     "My education has equipped me with valuable knowledge and skills. It has expanded my horizons, fostered critical thinking, and fueled a passion for lifelong learning.",
@@ -171,7 +157,7 @@ export const biography: InfoBio = {
   info: [
     {
       fieldName: "Name",
-      fieldDescription: "Di Dan Nguyen",
+      fieldDescription: "Nguyễn Di Đan",
     },
     {
       fieldName: "Phone",
@@ -201,14 +187,12 @@ export type Experience = {
   descriptions: string[];
 };
 export type InfoExperience = {
-  icon: string;
   title: string;
   description: string;
   experiences: Experience[];
 };
 
 export const experience: InfoExperience = {
-  icon: "/assets/about-me/badge.svg",
   title: "My Experience",
   description:
     "I have been working in the IT field for a long time, and I have gained a lot of experience. Here are some of my experiences",
