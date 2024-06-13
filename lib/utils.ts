@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const PER_PAGE = 10;
+export const PER_PAGE = 4;
 
 export function getRandomUUID() {
   if (typeof window === "undefined") {
