@@ -8,6 +8,8 @@ import ButtonScrollTop from "@/components/ui/ButtonScrollTop";
 import { ImArrowLeft } from "react-icons/im";
 import noImage from "@/public/assets/no-image.svg";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: { params: any }) {
   const { blogId } = params;
   const { title, content } = (await getBlogDetailNoRoute(blogId)) as Blog;
