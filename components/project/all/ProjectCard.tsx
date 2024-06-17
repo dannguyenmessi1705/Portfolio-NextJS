@@ -59,7 +59,9 @@ export default function ProjectCard({
       </div>
 
       <div>
-        <h2 className="mb-3 text-xl font-medium md:text-2xl">{title}</h2>
+        <h2 className="mb-3 mt-5 text-xl font-medium md:text-2xl xl:mt-0">
+          {title}
+        </h2>
         <h3 className="mb-3 font-medium">{description}</h3>
         <ul className="mt-5 flex flex-wrap space-x-2 text-sm tracking-wider">
           {languages.map((lang, index) => {
