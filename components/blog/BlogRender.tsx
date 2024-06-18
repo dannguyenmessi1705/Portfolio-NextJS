@@ -21,7 +21,7 @@ export default function BlogRender({ blog }: { blog: BlogType }) {
           {blog.adminName} -{" "}
           {(Date.now() - new Date(blog.date).getTime()) / 86400000 > 1
             ? `${Math.floor((Date.now() - new Date(blog.date).getTime()) / 86400000)} days ago`
-            : "Published in Today"}
+            : "Today"}
         </div>
         <h2 className="mb-2 text-xl font-bold text-white">
           <Link
