@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/styles/globals.css";
-// import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/header/Header";
 // import PageTransition from "@/components/transition/PageTransition";
 // import CoverTransition from "@/components/transition/CoverTransition";
@@ -46,7 +46,7 @@ export default function RootLayout({
 
             {/* <PageTransition> */}
             {children}
-            {/* <SpeedInsights /> */}
+            <SpeedInsights />
             {/* </PageTransition> */}
           </main>
         </SocketProvider>
