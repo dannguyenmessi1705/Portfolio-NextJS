@@ -19,8 +19,8 @@ import { jetbrains } from "./font";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Di Dan Nguyen",
-    default: "Di Dan Nguyen's Portfolio",
+    template: "%s | Nguyễn Di Đan",
+    default: "Nguyễn Di Đan Portfolio",
   },
   description: "Portfolio of Nguyễn Di Đan",
   verification: {
