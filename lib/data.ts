@@ -39,14 +39,14 @@ export const stats: Stats[] = [
     description: "Projects Completed",
   },
   {
+    key: "numBlogs",
+    count: 0,
+    description: "Blogs",
+  },
+  {
     key: "currentStreaks",
     count: 0,
     description: "Current Streaks",
-  },
-  {
-    key: "codeCommits",
-    count: 0,
-    description: "Code Commits",
   },
 ];
 

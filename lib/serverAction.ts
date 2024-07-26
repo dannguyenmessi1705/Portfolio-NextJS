@@ -242,6 +242,11 @@ export async function getBlogAction(blogId: string) {
   }
 }
 
+export async function getNumberBlogsAction(): Promise<number> {
+  const numberBlogs = await prisma.blog.count();
+  return numberBlogs;
+}
+
 export async function searchBlogsAction(page: string = "0", q: string) {
   try {
     const result = await axios.get(

@@ -1,13 +1,14 @@
 import { getCurrentStreaks } from "@/lib/github";
-import { getNumberProjectsAction } from "@/lib/serverAction";
+import { getNumberProjectsAction, getNumberBlogsAction } from "@/lib/serverAction";
 import Stats from "./Stats";
 
 export default async function StatsDisplay() {
-  const { codeCommits, currentStreaks } = await getCurrentStreaks();
+  const { currentStreaks } = await getCurrentStreaks();
   const numProjects = await getNumberProjectsAction();
+  const numBlogs = await getNumberBlogsAction();
   return (
     <Stats
-      codeCommits={codeCommits}
+      numBlogs={numBlogs}
       currentStreaks={currentStreaks}
       numProjects={numProjects}
     />

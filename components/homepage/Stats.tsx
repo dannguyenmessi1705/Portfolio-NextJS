@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import { useSocket } from "@/contexts/SocketProvider";
 import { motion } from "framer-motion";
 type Props = {
-  codeCommits: number;
   currentStreaks: number;
+  numBlogs: number;
   numProjects: number;
 };
 
 export default function Stats({
-  codeCommits,
   currentStreaks,
+  numBlogs,
   numProjects,
 }: Props) {
   const [profileStats, setProfileStats] = useState<Stats[]>(stats);
@@ -23,8 +23,8 @@ export default function Stats({
       prev.forEach((stat) => {
         if (stat.key === "accessings") {
           stat.count = users;
-        } else if (stat.key === "codeCommits") {
-          stat.count = codeCommits;
+        } else if (stat.key === "numBlogs") {
+          stat.count = numBlogs;
         } else if (stat.key === "currentStreaks") {
           stat.count = currentStreaks;
         } else if (stat.key === "projects") {
@@ -33,7 +33,7 @@ export default function Stats({
       });
       return [...prev];
     });
-  }, [users, codeCommits, currentStreaks, numProjects]);
+  }, [users, numBlogs, currentStreaks, numProjects]);
 
   return (
     <motion.section
