@@ -183,7 +183,7 @@ export default function CreateBlogForm() {
         />
 
         <SubmitButton pending={isPending} labelPending="Creating...">
-          Create Project
+          Create Blog
         </SubmitButton>
       </form>
     </Form>
