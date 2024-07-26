@@ -35,7 +35,7 @@ export async function createProjectAction(data: FormData) {
     throw new Error("Unauthorized");
   }
   const title = data.get("title") as string;
-  const image = data.get("image") as File;
+  let image = data.get("image") as File ?? null;
   const category = data.get("category") as Category;
   const description = data.get("description") as string;
   const demo = data.get("demo") as string;
@@ -176,7 +176,7 @@ export async function createBlogAction(data: FormData) {
     throw new Error("Unauthorized");
   }
   const title = data.get("title") as string;
-  const image = data.get("image") as File;
+  const image = data.get("image") as File ?? null;
   const excerpt = data.get("excerpt") as string;
   const content = data.get("content") as string;
   let imagePath: string = "";
