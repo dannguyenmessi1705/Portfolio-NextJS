@@ -1,4 +1,5 @@
 type Stats = {
+  longestStreak: number;
   codeCommits: number;
   currentStreaks: number;
 };
@@ -10,6 +11,7 @@ export async function getCurrentStreaks(): Promise<Stats> {
   );
   const res = await data.json();
   return {
+    longestStreak: res.longestStreak.days,
     codeCommits: res.totalContributions,
     currentStreaks: res.currentStreak.days,
   };

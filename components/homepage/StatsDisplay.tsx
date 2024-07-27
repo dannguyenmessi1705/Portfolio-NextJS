@@ -3,13 +3,13 @@ import { getNumberProjectsAction, getNumberBlogsAction } from "@/lib/serverActio
 import Stats from "./Stats";
 
 export default async function StatsDisplay() {
-  const { currentStreaks } = await getCurrentStreaks();
+  const { longestStreak } = await getCurrentStreaks();
   const numProjects = await getNumberProjectsAction();
   const numBlogs = await getNumberBlogsAction();
   return (
     <Stats
       numBlogs={numBlogs}
-      currentStreaks={currentStreaks}
+      longestStreak={longestStreak}
       numProjects={numProjects}
     />
   );

@@ -44,9 +44,9 @@ export const stats: Stats[] = [
     description: "Blogs",
   },
   {
-    key: "currentStreaks",
+    key: "longestStreak",
     count: 0,
-    description: "Current Streaks",
+    description: "Longest Streak",
   },
 ];
 

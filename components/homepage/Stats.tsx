@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { useSocket } from "@/contexts/SocketProvider";
 import { motion } from "framer-motion";
 type Props = {
-  currentStreaks: number;
+  longestStreak: number;
   numBlogs: number;
   numProjects: number;
 };
 
 export default function Stats({
-  currentStreaks,
+  longestStreak,
   numBlogs,
   numProjects,
 }: Props) {
@@ -25,15 +25,15 @@ export default function Stats({
           stat.count = users;
         } else if (stat.key === "numBlogs") {
           stat.count = numBlogs;
-        } else if (stat.key === "currentStreaks") {
-          stat.count = currentStreaks;
+        } else if (stat.key === "longestStreak") {
+          stat.count = longestStreak;
         } else if (stat.key === "projects") {
           stat.count = numProjects;
         }
       });
       return [...prev];
     });
-  }, [users, numBlogs, currentStreaks, numProjects]);
+  }, [users, numBlogs, longestStreak, numProjects]);
 
   return (
     <motion.section
