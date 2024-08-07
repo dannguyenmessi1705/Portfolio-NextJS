@@ -30,7 +30,7 @@ export default async function page() {
 
             <div className="flex flex-col items-center gap-8 xl:flex-row">
               <Link
-                href="https://i2cyjyqqpqfhs8o3.public.blob.vercel-storage.com/CV_NguyenDiDan-NvUJbSugHPBxqOUYxYsEhHlqKRlAJM"
+                href="https://i2cyjyqqpqfhs8o3.public.blob.vercel-storage.com/VDT_Nguy%E1%BB%85n%20Di%20%C4%90an_CV-ghrVXHUSWshpQL138khoLOpoeSHYqI"
                 target="_blank"
                 prefetch={true}
                 className="flex items-center justify-center gap-2 rounded-md border border-accent-700 bg-accent-600 px-4 py-2 uppercase text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-accent-800"
