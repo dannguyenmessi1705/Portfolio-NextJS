@@ -36,6 +36,8 @@ async function getBlog(blogId: string) {
   };
 }
 
+export const revalidate = 86400; // Sử dụng cache cũ, sau 1 ngày, trang sẽ được tạo lại (refresh) để cập nhật dữ liệu mới
+
 export async function generateStaticParams() {
   const blogs = (await getAllBlogsNoRoute()) as Blog[];
   const params = blogs.map((blog) => {

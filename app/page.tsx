@@ -5,6 +5,8 @@ import StatsDisplay from "@/components/homepage/StatsDisplay";
 import { Suspense } from "react";
 import Link from "next/link";
 
+export const revalidate = 60; // Sử dụng cache cũ, sau 60s, trang sẽ được tạo lại (refresh) để cập nhật dữ liệu mới
+
 export default async function page() {
   return (
     <section className="h-full">

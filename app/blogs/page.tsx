@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 86400; // Sử dụng cache cũ, sau 1 ngày, trang sẽ được tạo lại (refresh) để cập nhật dữ liệu mới
+
 async function Page({ searchParams }: { searchParams: any }) {
   const query = searchParams?.q ?? "";
   const session = await auth();
