@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/all-id`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs?page=all`,
   );
   const blogs: Blog[] = await res.json();
   const blogEntries: MetadataRoute.Sitemap = blogs.map(({ id, date }) => ({
